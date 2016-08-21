@@ -1,0 +1,6 @@
+framework module Pods_OuthouseUITests {
+  umbrella header "Pods-OuthouseUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
