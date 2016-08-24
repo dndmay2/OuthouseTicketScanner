@@ -21,6 +21,11 @@
 		BDFE84371D696EB100E91234 /* BarcodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFE84321D696EB100E91234 /* BarcodeReaderViewController.swift */; };
 		BDFE84381D696EB100E91234 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFE84331D696EB100E91234 /* Constants.swift */; };
 		BDFE84391D696EB100E91234 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFE84341D696EB100E91234 /* DataService.swift */; };
+		BDFE843F1D6BB79200E91234 /* Soap in Resources */ = {isa = PBXBuildFile; fileRef = BDFE843E1D6BB79200E91234 /* Soap */; };
+		BDFE84421D6BD04400E91234 /* barcodeButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = BDFE84401D6BD04400E91234 /* barcodeButtonPressed.png */; };
+		BDFE84431D6BD04400E91234 /* barcodeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = BDFE84411D6BD04400E91234 /* barcodeButton.png */; };
+		BDFE84461D6BD79A00E91234 /* ShowSplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFE84451D6BD79A00E91234 /* ShowSplashScreenViewController.swift */; };
+		BDFE84481D6BDD5100E91234 /* outhouseFull.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BDFE84471D6BDD5100E91234 /* outhouseFull.jpg */; };
 		EBBAD2E4EA658539CA753C1E /* Pods_OuthouseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78BEAE7862178282C99E8197 /* Pods_OuthouseTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,11 +66,17 @@
 		BD89C9191D696ADA00678160 /* OuthouseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OuthouseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD89C91D1D696ADA00678160 /* OuthouseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OuthouseUITests.swift; sourceTree = "<group>"; };
 		BD89C91F1D696ADA00678160 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDAF40071D6D3EBB009863C2 /* OuthousePlay.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = OuthousePlay.playground; sourceTree = "<group>"; };
 		BDFE84301D696EB100E91234 /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		BDFE84311D696EB100E91234 /* AlbumDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumDetailsViewController.swift; sourceTree = "<group>"; };
 		BDFE84321D696EB100E91234 /* BarcodeReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeReaderViewController.swift; sourceTree = "<group>"; };
 		BDFE84331D696EB100E91234 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BDFE84341D696EB100E91234 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		BDFE843E1D6BB79200E91234 /* Soap */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Soap; sourceTree = "<group>"; };
+		BDFE84401D6BD04400E91234 /* barcodeButtonPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = barcodeButtonPressed.png; path = ../../../../Pictures/barcodeButtonPressed.png; sourceTree = "<group>"; };
+		BDFE84411D6BD04400E91234 /* barcodeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = barcodeButton.png; path = ../../../../Pictures/barcodeButton.png; sourceTree = "<group>"; };
+		BDFE84451D6BD79A00E91234 /* ShowSplashScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowSplashScreenViewController.swift; sourceTree = "<group>"; };
+		BDFE84471D6BDD5100E91234 /* outhouseFull.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = outhouseFull.jpg; path = ../../../../Pictures/outhouseFull.jpg; sourceTree = "<group>"; };
 		D78F3EA7C14C442DCDB45521 /* Pods-Outhouse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Outhouse.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Outhouse/Pods-Outhouse.debug.xcconfig"; sourceTree = "<group>"; };
 		F207BBA92B33C4C2C86274D0 /* Pods_Outhouse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Outhouse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE54DD63CA0BE0A960625128 /* Pods-OuthouseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OuthouseTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OuthouseTests/Pods-OuthouseTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -147,15 +158,19 @@
 		BD89C8FC1D696ADA00678160 /* Outhouse */ = {
 			isa = PBXGroup;
 			children = (
+				BD89C9041D696ADA00678160 /* Assets.xcassets */,
+				BDFE84331D696EB100E91234 /* Constants.swift */,
+				BDFE84441D6BD06800E91234 /* Images */,
+				BDFE843E1D6BB79200E91234 /* Soap */,
 				BD89C8FD1D696ADA00678160 /* AppDelegate.swift */,
 				BD89C8FF1D696ADA00678160 /* ViewController.swift */,
 				BDFE84301D696EB100E91234 /* Album.swift */,
+				BDFE84451D6BD79A00E91234 /* ShowSplashScreenViewController.swift */,
 				BDFE84311D696EB100E91234 /* AlbumDetailsViewController.swift */,
 				BDFE84321D696EB100E91234 /* BarcodeReaderViewController.swift */,
-				BDFE84331D696EB100E91234 /* Constants.swift */,
 				BDFE84341D696EB100E91234 /* DataService.swift */,
+				BDAF40071D6D3EBB009863C2 /* OuthousePlay.playground */,
 				BD89C9011D696ADA00678160 /* Main.storyboard */,
-				BD89C9041D696ADA00678160 /* Assets.xcassets */,
 				BD89C9061D696ADA00678160 /* LaunchScreen.storyboard */,
 				BD89C9091D696ADA00678160 /* Info.plist */,
 			);
@@ -178,6 +193,16 @@
 				BD89C91F1D696ADA00678160 /* Info.plist */,
 			);
 			path = OuthouseUITests;
+			sourceTree = "<group>";
+		};
+		BDFE84441D6BD06800E91234 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				BDFE84471D6BDD5100E91234 /* outhouseFull.jpg */,
+				BDFE84411D6BD04400E91234 /* barcodeButton.png */,
+				BDFE84401D6BD04400E91234 /* barcodeButtonPressed.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,9 +318,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDFE84421D6BD04400E91234 /* barcodeButtonPressed.png in Resources */,
 				BD89C9081D696ADA00678160 /* LaunchScreen.storyboard in Resources */,
+				BDFE84431D6BD04400E91234 /* barcodeButton.png in Resources */,
 				BD89C9051D696ADA00678160 /* Assets.xcassets in Resources */,
 				BD89C9031D696ADA00678160 /* Main.storyboard in Resources */,
+				BDFE84481D6BDD5100E91234 /* outhouseFull.jpg in Resources */,
+				BDFE843F1D6BB79200E91234 /* Soap in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +474,7 @@
 			files = (
 				BDFE84371D696EB100E91234 /* BarcodeReaderViewController.swift in Sources */,
 				BDFE84391D696EB100E91234 /* DataService.swift in Sources */,
+				BDFE84461D6BD79A00E91234 /* ShowSplashScreenViewController.swift in Sources */,
 				BD89C9001D696ADA00678160 /* ViewController.swift in Sources */,
 				BD89C8FE1D696ADA00678160 /* AppDelegate.swift in Sources */,
 				BDFE84361D696EB100E91234 /* AlbumDetailsViewController.swift in Sources */,

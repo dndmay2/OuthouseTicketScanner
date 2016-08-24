@@ -20,7 +20,7 @@ class AlbumDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        artistAlbumLabel.text = "Let's scan an album!"
+        artistAlbumLabel.text = "Let's scan a ticket!"
         yearLabel.text = ""
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(setLabels(_:)), name: "AlbumNotification", object: nil)

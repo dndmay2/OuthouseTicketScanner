@@ -1,14 +1,16 @@
-//
-//  DataService.swift
-//  Outhouse
-//
-//  Created by Derek May on 8/21/16.
-//  Copyright © 2016 Derek May. All rights reserved.
-//
+//: Playground - noun: a place where people can play
+
+import XCPlayground
+// Needed for the asynchronous Alamofire
+XCPlaygroundPage.currentPage.needsIndefiniteExecution = true
+import UIKit
+
+var str = "Hello, playground"
 
 import Foundation
 import Alamofire
 import SwiftyJSON
+
 
 class DataService {
     
@@ -37,5 +39,5 @@ class DataService {
                 NSNotificationCenter.defaultCenter().postNotificationName("AlbumNotification", object: nil)
         }
     }
-        
+    
 }
