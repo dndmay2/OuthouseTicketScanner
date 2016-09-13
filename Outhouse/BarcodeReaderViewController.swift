@@ -50,7 +50,7 @@ class BarcodeReaderViewController: UIViewController, AVCaptureMetadataOutputObje
             metadataOutput.setMetadataObjectsDelegate(self, queue: dispatch_get_main_queue())
             
             // Set barcode type for which to scan: EAN-13.
-            metadataOutput.metadataObjectTypes = [AVMetadataObjectTypeEAN13Code]
+            metadataOutput.metadataObjectTypes = [AVMetadataObjectTypeCode128Code]
             
         } else {
             scanningNotPossible()
@@ -72,6 +72,11 @@ class BarcodeReaderViewController: UIViewController, AVCaptureMetadataOutputObje
         
         if (session?.running == false) {
             session.startRunning()
+        }
+        if Platform.isSimulator {
+            print("Running on Simulator")
+            barcodeDetected(TEST_TICKET_CODE)
+            session.stopRunning()
         }
     }
     
@@ -116,35 +121,49 @@ class BarcodeReaderViewController: UIViewController, AVCaptureMetadataOutputObje
     }
 
     func barcodeDetected(code: String) {
+        let trimmedCode = code.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         
-        // Let the user know we've found something.
-        let alert = UIAlertController(title: "Found a Barcode!", message: code, preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "Search", style: UIAlertActionStyle.Destructive, handler: { action in
-            
-            // Remove the spaces.
-            let trimmedCode = code.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-            
-            // EAN or UPC?
-            // Check for added "0" at beginning of code.
-            
-            let trimmedCodeString = "\(trimmedCode)"
-            var trimmedCodeNoZero: String
-            
-            if trimmedCodeString.hasPrefix("0") && trimmedCodeString.characters.count > 1 {
-                trimmedCodeNoZero = String(trimmedCodeString.characters.dropFirst())
-                
-                // Send the doctored UPC to DataService.searchAPI()
-                DataService.searchAPI(trimmedCodeNoZero)
-            } else {
-                
-                // Send the doctored EAN to DataService.searchAPI()
-                DataService.searchAPI(trimmedCodeString)
-            }
-            
-            self.navigationController?.popViewControllerAnimated(true)
-        }))
-        
-        self.presentViewController(alert, animated: true, completion: nil)
-    }
+        let trimmedCodeString = "\(trimmedCode)"
+        DataService.processTicketCode(trimmedCodeString)
 
+        DataService.getScannedTicketCountForEvent()
+        self.navigationController?.popViewControllerAnimated(true)
+    }
 }
+//        self.presentViewController(alert, animated: true, completion: nil)
+        
+//        // Let the user know we've found something.
+//        let alert = UIAlertController(title: "Found a Barcode!", message: code, preferredStyle: UIAlertControllerStyle.Alert)
+//        alert.addAction(UIAlertAction(title: "Search", style: UIAlertActionStyle.Destructive, handler: { action in
+//            
+//            // Remove the spaces.
+//            let trimmedCode = code.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+//            
+//            let trimmedCodeString = "\(trimmedCode)"
+//            DataService.processTicketCode(trimmedCodeString)
+//
+//             EAN or UPC?
+//             Check for added "0" at beginning of code.
+//            
+//            var trimmedCodeNoZero: String
+//            
+//            if trimmedCodeString.hasPrefix("z") && trimmedCodeString.characters.count > 1 {
+//                trimmedCodeNoZero = String(trimmedCodeString.characters.dropFirst())
+//                
+//                // Send the doctored UPC to DataService.searchAPI()
+//                //DataService.searchAPI(trimmedCodeNoZero)
+//                DataService.processTicketCode(trimmedCodeNoZero)
+//            } else {
+//            
+//                // Send the doctored EAN to DataService.searchAPI()
+//                //DataService.searchAPI(trimmedCodeString)
+//                DataService.processTicketCode(trimmedCodeString)
+//            }
+//            
+//            DataService.getScannedTicketCountForEvent()
+//            self.navigationController?.popViewControllerAnimated(true)
+//        }))
+//        self.presentViewController(alert, animated: true, completion: nil)
+//    }
+
+//}

@@ -21,3 +21,27 @@ class Album {
     }
     
 }
+
+class EventTickets {
+    
+    private(set) var ticketsScanned: String!
+    private(set) var totalTickets: String!
+    
+    init(numTicketsScanned: String, numTotalTickets: String) {
+        
+        // Add a little extra text to the album information
+        self.ticketsScanned = "\(numTicketsScanned)"
+        self.totalTickets = "\(numTotalTickets)"
+    }
+    
+}
+
+struct Platform {
+    
+    static var isSimulator: Bool {
+        return TARGET_OS_SIMULATOR != 0 // Use this line in Xcode 7 or newer
+        return TARGET_IPHONE_SIMULATOR != 0 // Use this line in Xcode 6
+    }
+    
+}
+
