@@ -23,8 +23,8 @@ class DataService {
     private(set) var NUM_TICKETS = "0"
     private(set) var NUM_SCANNED_TICKETS = "0"
     private(set) var TICKET_CODE = "Let's scan a ticket"
-    private(set) var TICKET_STATUS = ""
-    private(set) var TICKET_STATUS_MESSAGE = "Message"
+    private(set) var TICKET_STATUS = "None"
+    private(set) var TICKET_STATUS_MESSAGE = ""
     private(set) var soapRequest = AEXMLElement()
     //private(set) var TEST_VAR = AnyObject
     
@@ -108,8 +108,9 @@ class DataService {
             // use responseObject and error here
             let count = responseObject!["soap:Envelope"]["soap:Body"][cmd + "Response"][cmd + "Result"].element!.text!
             self.dataService.NUM_TICKETS = count
+            print(" ", cmd, count)
             // Post a notification to let AlbumDetailsViewController know we have some data.
-            NSNotificationCenter.defaultCenter().postNotificationName("TicketNotification", object: nil)
+            NSNotificationCenter.defaultCenter().postNotificationName("ShowTicketCountLabels", object: nil)
         }
     }
     
@@ -119,8 +120,8 @@ class DataService {
             // use responseObject and error here
             let count =  responseObject!["soap:Envelope"]["soap:Body"][cmd + "Response"][cmd + "Result"].element!.text!
             self.dataService.NUM_SCANNED_TICKETS = count
-            print(cmd, count)
-            NSNotificationCenter.defaultCenter().postNotificationName("TicketNotification", object: nil)
+            print(" ", cmd, count)
+            NSNotificationCenter.defaultCenter().postNotificationName("ShowTicketCountLabels", object: nil)
         }
     }
     
@@ -134,8 +135,7 @@ class DataService {
                 // everything is good, code away!
                 let result = elem.text!
                 self.dataService.TICKET_STATUS = result
-                print(result)
-                NSNotificationCenter.defaultCenter().postNotificationName("TicketNotification", object: nil)
+                print(" ", cmd, result)
             case .XMLError(let error):
                 // error is an XMLIndexer.Error instance that you can deal with
                 print("result error", error)
@@ -147,15 +147,15 @@ class DataService {
                 // everything is good, code away!
                 let result = elem.text!
                 self.dataService.TICKET_STATUS_MESSAGE = result
-                print(result)
-                NSNotificationCenter.defaultCenter().postNotificationName("TicketNotification", object: nil)
+                print(" message:", result)
             case .XMLError:
                 // error is an XMLIndexer.Error instance that you can deal with
                 self.dataService.TICKET_STATUS_MESSAGE = "Valid Ticket"
-                NSNotificationCenter.defaultCenter().postNotificationName("TicketNotification", object: nil)
             default:
                 print("default")
             }
+            NSNotificationCenter.defaultCenter().postNotificationName("ShowTicketStatusLabels", object: nil)
+            NSNotificationCenter.defaultCenter().postNotificationName("ShowResultImage", object: nil)
         }
     }
 }

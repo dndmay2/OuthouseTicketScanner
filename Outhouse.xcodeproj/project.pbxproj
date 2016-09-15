@@ -16,6 +16,9 @@
 		BD89C9081D696ADA00678160 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD89C9061D696ADA00678160 /* LaunchScreen.storyboard */; };
 		BD89C9131D696ADA00678160 /* OuthouseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD89C9121D696ADA00678160 /* OuthouseTests.swift */; };
 		BD89C91E1D696ADA00678160 /* OuthouseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD89C91D1D696ADA00678160 /* OuthouseUITests.swift */; };
+		BDCC22CF1D88EAC800909103 /* stop-sign-png-27210.png in Resources */ = {isa = PBXBuildFile; fileRef = BDCC22CC1D88EAC800909103 /* stop-sign-png-27210.png */; };
+		BDCC22D01D88EAC800909103 /* stop-sign-png-27224.png in Resources */ = {isa = PBXBuildFile; fileRef = BDCC22CD1D88EAC800909103 /* stop-sign-png-27224.png */; };
+		BDCC22D11D88EAC800909103 /* check-tick-icon-14147.png in Resources */ = {isa = PBXBuildFile; fileRef = BDCC22CE1D88EAC800909103 /* check-tick-icon-14147.png */; };
 		BDFE84351D696EB100E91234 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFE84301D696EB100E91234 /* Album.swift */; };
 		BDFE84361D696EB100E91234 /* AlbumDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFE84311D696EB100E91234 /* AlbumDetailsViewController.swift */; };
 		BDFE84371D696EB100E91234 /* BarcodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFE84321D696EB100E91234 /* BarcodeReaderViewController.swift */; };
@@ -65,6 +68,9 @@
 		BD89C9191D696ADA00678160 /* OuthouseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OuthouseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD89C91D1D696ADA00678160 /* OuthouseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OuthouseUITests.swift; sourceTree = "<group>"; };
 		BD89C91F1D696ADA00678160 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDCC22CC1D88EAC800909103 /* stop-sign-png-27210.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "stop-sign-png-27210.png"; path = "Images/stop-sign-png-27210.png"; sourceTree = "<group>"; };
+		BDCC22CD1D88EAC800909103 /* stop-sign-png-27224.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "stop-sign-png-27224.png"; path = "Images/stop-sign-png-27224.png"; sourceTree = "<group>"; };
+		BDCC22CE1D88EAC800909103 /* check-tick-icon-14147.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "check-tick-icon-14147.png"; path = "Images/check-tick-icon-14147.png"; sourceTree = "<group>"; };
 		BDFE84301D696EB100E91234 /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		BDFE84311D696EB100E91234 /* AlbumDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumDetailsViewController.swift; sourceTree = "<group>"; };
 		BDFE84321D696EB100E91234 /* BarcodeReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeReaderViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +199,9 @@
 		BDFE84441D6BD06800E91234 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				BDCC22CC1D88EAC800909103 /* stop-sign-png-27210.png */,
+				BDCC22CD1D88EAC800909103 /* stop-sign-png-27224.png */,
+				BDCC22CE1D88EAC800909103 /* check-tick-icon-14147.png */,
 				BDFE84471D6BDD5100E91234 /* outhouseFull.jpg */,
 				BDFE84411D6BD04400E91234 /* barcodeButton.png */,
 				BDFE84401D6BD04400E91234 /* barcodeButtonPressed.png */,
@@ -313,11 +322,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDCC22D11D88EAC800909103 /* check-tick-icon-14147.png in Resources */,
 				BDFE84421D6BD04400E91234 /* barcodeButtonPressed.png in Resources */,
 				BD89C9081D696ADA00678160 /* LaunchScreen.storyboard in Resources */,
+				BDCC22CF1D88EAC800909103 /* stop-sign-png-27210.png in Resources */,
 				BDFE84431D6BD04400E91234 /* barcodeButton.png in Resources */,
 				BD89C9051D696ADA00678160 /* Assets.xcassets in Resources */,
 				BD89C9031D696ADA00678160 /* Main.storyboard in Resources */,
+				BDCC22D01D88EAC800909103 /* stop-sign-png-27224.png in Resources */,
 				BDFE84481D6BDD5100E91234 /* outhouseFull.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
