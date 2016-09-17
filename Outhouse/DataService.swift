@@ -8,13 +8,8 @@
 
 import Foundation
 import Alamofire
-import SwiftyJSON
 import SWXMLHash
 import AEXML
-
-//let DISCOGS_KEY = "typuukemgRjvIOPjgBYk"
-//let DISCOGS_SECRET = "OarbROatkpekEwGuPBpiZweGXPeBoQOa"
-//let DISCOGS_AUTH_URL = "https://api.discogs.com/database/search?q="
 
 class DataService {
     
@@ -102,15 +97,74 @@ class DataService {
         }
     }
     
+//    static func postAndReturn(cmd: String) -> (result: String?, errMsg: String?) {
+//        var result:String?
+//        var errMsg:String?
+//        DataService.postSoapCommand(cmd){ responseObject, error in
+//            // use responseObject and error here
+//            print("A")
+//            if (responseObject != nil) {
+//                switch responseObject!["soap:Envelope"]["soap:Body"][cmd + "Response"][cmd + "Result"] {
+//                case .Element(let elem):
+//                    result = elem.text!
+//                    print(" ", cmd, result)
+//                case .XMLError(let error):
+//                    print("result error1", error)
+//                    errMsg = "XML Parsing error"
+//                default:
+//                    print("default1")
+//                }
+//            }
+//            else {
+//                //print("derek", error!.localizedDescription)
+//                if (error!.code == -1009) {
+//                    errMsg = "No Internet Connection!"
+//                }
+//                else {
+//                    errMsg = error!.localizedDescription
+//                }
+//            }
+//        }
+//        return(result, errMsg)
+//        
+//    }
+//
+//    static func getTicketCountForEvent2() {
+//        let cmd = "GetTicketCountForEvent"
+//        let (result, errMsg) = postAndReturn(cmd)
+//        print("VERSION2", cmd, result, errMsg)
+//        if (result != nil) {
+//            self.dataService.NUM_TICKETS = result!
+//            // Post a notification to let AlbumDetailsViewController know we have some data.
+//            NSNotificationCenter.defaultCenter().postNotificationName("ShowTicketCountLabels", object: nil)
+//        } else if errMsg != nil {
+//            print(cmd, errMsg)
+//            self.dataService.TICKET_STATUS_MESSAGE = errMsg!
+//        }
+//    }
+    
     static func getTicketCountForEvent() {
         let cmd = "GetTicketCountForEvent"
         DataService.postSoapCommand(cmd){ responseObject, error in
             // use responseObject and error here
-            let count = responseObject!["soap:Envelope"]["soap:Body"][cmd + "Response"][cmd + "Result"].element!.text!
-            self.dataService.NUM_TICKETS = count
-            print(" ", cmd, count)
-            // Post a notification to let AlbumDetailsViewController know we have some data.
-            NSNotificationCenter.defaultCenter().postNotificationName("ShowTicketCountLabels", object: nil)
+            if (responseObject != nil) {
+                switch responseObject!["soap:Envelope"]["soap:Body"][cmd + "Response"][cmd + "Result"] {
+                case .Element(let elem):
+                    let count = elem.text!
+                    self.dataService.NUM_TICKETS = count
+                    print(" ", cmd, count)
+                    // Post a notification to let AlbumDetailsViewController know we have some data.
+                    NSNotificationCenter.defaultCenter().postNotificationName("ShowTicketCountLabels", object: nil)
+                case .XMLError(let error):
+                    print("result error1", error)
+                default:
+                    print("default1")
+                }
+            }
+            else {
+                //print("derek", error!.localizedDescription)
+                self.dataService.TICKET_STATUS_MESSAGE = "No Internet Connection!"
+            }
         }
     }
     
@@ -118,9 +172,15 @@ class DataService {
         let cmd = "GetScannedTicketCountForEvent"
         DataService.postSoapCommand(cmd){ responseObject, error in
             // use responseObject and error here
-            let count =  responseObject!["soap:Envelope"]["soap:Body"][cmd + "Response"][cmd + "Result"].element!.text!
-            self.dataService.NUM_SCANNED_TICKETS = count
-            print(" ", cmd, count)
+            if (responseObject != nil) {
+                let count =  responseObject!["soap:Envelope"]["soap:Body"][cmd + "Response"][cmd + "Result"].element!.text!
+                self.dataService.NUM_SCANNED_TICKETS = count
+                print(" ", cmd, count)
+            } else {
+                //print("derek2", error!.localizedDescription )
+                self.dataService.TICKET_STATUS_MESSAGE = "No Internet Connection!"
+                NSNotificationCenter.defaultCenter().postNotificationName("ShowTicketStatusLabels", object: nil)
+            }
             NSNotificationCenter.defaultCenter().postNotificationName("ShowTicketCountLabels", object: nil)
         }
     }
@@ -129,33 +189,44 @@ class DataService {
         let cmd = "ProcessTicketCode"
         self.dataService.TICKET_CODE = codeNumber
         DataService.postSoapCommand(cmd){ responseObject, error in
-            // use responseObject and error here
-            switch responseObject!["soap:Envelope"]["soap:Body"][cmd + "Response"][cmd + "Result"] {
-            case .Element(let elem):
-                // everything is good, code away!
-                let result = elem.text!
-                self.dataService.TICKET_STATUS = result
-                print(" ", cmd, result)
-            case .XMLError(let error):
-                // error is an XMLIndexer.Error instance that you can deal with
-                print("result error", error)
-            default:
-                print("default")
+            if (responseObject != nil) {
+                // use responseObject and error here
+                switch responseObject!["soap:Envelope"]["soap:Body"][cmd + "Response"][cmd + "Result"] {
+                case .Element(let elem):
+                    // everything is good, code away!
+                    let result = elem.text!
+                    self.dataService.TICKET_STATUS = result
+                    print(" ", cmd, result)
+                case .XMLError(let error):
+                    // error is an XMLIndexer.Error instance that you can deal with
+                    print("result error", error)
+                default:
+                    print("default")
+                }
+                switch responseObject!["soap:Envelope"]["soap:Body"][cmd + "Response"]["message"] {
+                case .Element(let elem):
+                    // everything is good, code away!
+                    let result = elem.text!
+                    self.dataService.TICKET_STATUS_MESSAGE = result
+                    print(" message:", result)
+                case .XMLError:
+                    // error is an XMLIndexer.Error instance that you can deal with
+                    self.dataService.TICKET_STATUS_MESSAGE = "Valid Ticket"
+                default:
+                    print("default")
+                }
+                NSNotificationCenter.defaultCenter().postNotificationName("ShowTicketStatusLabels", object: nil)
+                NSNotificationCenter.defaultCenter().postNotificationName("ShowResultImage", object: nil)
+            } else {
+                //print("derek3",  error!.localizedDescription, error!.code)
+                self.dataService.NUM_SCANNED_TICKETS = String(Int(self.dataService.NUM_SCANNED_TICKETS)!+1)
+                if (error!.code == -1009) {
+                    self.dataService.TICKET_STATUS_MESSAGE = "No Internet Connection!"
+                }
+                else {
+                    self.dataService.TICKET_STATUS_MESSAGE = "Connection Error!"
+                }
             }
-            switch responseObject!["soap:Envelope"]["soap:Body"][cmd + "Response"]["message"] {
-            case .Element(let elem):
-                // everything is good, code away!
-                let result = elem.text!
-                self.dataService.TICKET_STATUS_MESSAGE = result
-                print(" message:", result)
-            case .XMLError:
-                // error is an XMLIndexer.Error instance that you can deal with
-                self.dataService.TICKET_STATUS_MESSAGE = "Valid Ticket"
-            default:
-                print("default")
-            }
-            NSNotificationCenter.defaultCenter().postNotificationName("ShowTicketStatusLabels", object: nil)
-            NSNotificationCenter.defaultCenter().postNotificationName("ShowResultImage", object: nil)
         }
     }
 }

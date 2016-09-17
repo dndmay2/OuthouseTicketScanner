@@ -10,7 +10,7 @@ target 'Outhouse' do
 
   # Pods for Outhouse
   pod 'Alamofire', '~> 3.0'
-  pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
+  # pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
   pod 'SWXMLHash'
   pod 'AEXML'
   # pod 'StringExtensionHTML'

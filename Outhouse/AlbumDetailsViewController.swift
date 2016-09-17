@@ -72,7 +72,7 @@ class AlbumDetailsViewController: UIViewController {
             CheckMarkImage.hidden = false
         } else if DataService.dataService.TICKET_STATUS == "false" {
             print("result false\n")
-            AudioServicesPlaySystemSound(1329)
+            AudioServicesPlaySystemSound(1029)
             StopSignImage.hidden = false
             CheckMarkImage.hidden = true
         } else {

@@ -113,7 +113,7 @@ class BarcodeReaderViewController: UIViewController, AVCaptureMetadataOutputObje
             }
             
             // Vibrate the device to give the user some feedback.
-            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+            //AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             
             // Avoid a very buzzy device.
             session.stopRunning()
