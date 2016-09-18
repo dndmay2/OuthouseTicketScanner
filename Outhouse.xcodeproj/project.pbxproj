@@ -19,8 +19,10 @@
 		BDCC22CF1D88EAC800909103 /* stop-sign-png-27210.png in Resources */ = {isa = PBXBuildFile; fileRef = BDCC22CC1D88EAC800909103 /* stop-sign-png-27210.png */; };
 		BDCC22D01D88EAC800909103 /* stop-sign-png-27224.png in Resources */ = {isa = PBXBuildFile; fileRef = BDCC22CD1D88EAC800909103 /* stop-sign-png-27224.png */; };
 		BDCC22D11D88EAC800909103 /* check-tick-icon-14147.png in Resources */ = {isa = PBXBuildFile; fileRef = BDCC22CE1D88EAC800909103 /* check-tick-icon-14147.png */; };
-		BDFE84351D696EB100E91234 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFE84301D696EB100E91234 /* Album.swift */; };
-		BDFE84361D696EB100E91234 /* AlbumDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFE84311D696EB100E91234 /* AlbumDetailsViewController.swift */; };
+		BDCC22D31D8DF37400909103 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BDCC22D21D8DF37400909103 /* Settings.bundle */; };
+		BDCC22D71D8E151800909103 /* UpcomingEventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCC22D61D8E151800909103 /* UpcomingEventsTableViewController.swift */; };
+		BDFE84351D696EB100E91234 /* Structures.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFE84301D696EB100E91234 /* Structures.swift */; };
+		BDFE84361D696EB100E91234 /* TicketDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFE84311D696EB100E91234 /* TicketDetailsViewController.swift */; };
 		BDFE84371D696EB100E91234 /* BarcodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFE84321D696EB100E91234 /* BarcodeReaderViewController.swift */; };
 		BDFE84381D696EB100E91234 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFE84331D696EB100E91234 /* Constants.swift */; };
 		BDFE84391D696EB100E91234 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFE84341D696EB100E91234 /* DataService.swift */; };
@@ -71,8 +73,10 @@
 		BDCC22CC1D88EAC800909103 /* stop-sign-png-27210.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "stop-sign-png-27210.png"; path = "Images/stop-sign-png-27210.png"; sourceTree = "<group>"; };
 		BDCC22CD1D88EAC800909103 /* stop-sign-png-27224.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "stop-sign-png-27224.png"; path = "Images/stop-sign-png-27224.png"; sourceTree = "<group>"; };
 		BDCC22CE1D88EAC800909103 /* check-tick-icon-14147.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "check-tick-icon-14147.png"; path = "Images/check-tick-icon-14147.png"; sourceTree = "<group>"; };
-		BDFE84301D696EB100E91234 /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
-		BDFE84311D696EB100E91234 /* AlbumDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumDetailsViewController.swift; sourceTree = "<group>"; };
+		BDCC22D21D8DF37400909103 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		BDCC22D61D8E151800909103 /* UpcomingEventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingEventsTableViewController.swift; sourceTree = "<group>"; };
+		BDFE84301D696EB100E91234 /* Structures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Structures.swift; sourceTree = "<group>"; };
+		BDFE84311D696EB100E91234 /* TicketDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketDetailsViewController.swift; sourceTree = "<group>"; };
 		BDFE84321D696EB100E91234 /* BarcodeReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeReaderViewController.swift; sourceTree = "<group>"; };
 		BDFE84331D696EB100E91234 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BDFE84341D696EB100E91234 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
@@ -166,12 +170,14 @@
 				BDFE84441D6BD06800E91234 /* Images */,
 				BD89C8FD1D696ADA00678160 /* AppDelegate.swift */,
 				BD89C8FF1D696ADA00678160 /* ViewController.swift */,
-				BDFE84301D696EB100E91234 /* Album.swift */,
+				BDFE84301D696EB100E91234 /* Structures.swift */,
 				BDFE84451D6BD79A00E91234 /* ShowSplashScreenViewController.swift */,
-				BDFE84311D696EB100E91234 /* AlbumDetailsViewController.swift */,
+				BDFE84311D696EB100E91234 /* TicketDetailsViewController.swift */,
+				BDCC22D61D8E151800909103 /* UpcomingEventsTableViewController.swift */,
 				BDFE84321D696EB100E91234 /* BarcodeReaderViewController.swift */,
 				BDFE84341D696EB100E91234 /* DataService.swift */,
 				BD89C9011D696ADA00678160 /* Main.storyboard */,
+				BDCC22D21D8DF37400909103 /* Settings.bundle */,
 				BD89C9061D696ADA00678160 /* LaunchScreen.storyboard */,
 				BD89C9091D696ADA00678160 /* Info.plist */,
 			);
@@ -324,6 +330,7 @@
 			files = (
 				BDCC22D11D88EAC800909103 /* check-tick-icon-14147.png in Resources */,
 				BDFE84421D6BD04400E91234 /* barcodeButtonPressed.png in Resources */,
+				BDCC22D31D8DF37400909103 /* Settings.bundle in Resources */,
 				BD89C9081D696ADA00678160 /* LaunchScreen.storyboard in Resources */,
 				BDCC22CF1D88EAC800909103 /* stop-sign-png-27210.png in Resources */,
 				BDFE84431D6BD04400E91234 /* barcodeButton.png in Resources */,
@@ -483,8 +490,9 @@
 				BDFE84461D6BD79A00E91234 /* ShowSplashScreenViewController.swift in Sources */,
 				BD89C9001D696ADA00678160 /* ViewController.swift in Sources */,
 				BD89C8FE1D696ADA00678160 /* AppDelegate.swift in Sources */,
-				BDFE84361D696EB100E91234 /* AlbumDetailsViewController.swift in Sources */,
-				BDFE84351D696EB100E91234 /* Album.swift in Sources */,
+				BDFE84361D696EB100E91234 /* TicketDetailsViewController.swift in Sources */,
+				BDFE84351D696EB100E91234 /* Structures.swift in Sources */,
+				BDCC22D71D8E151800909103 /* UpcomingEventsTableViewController.swift in Sources */,
 				BDFE84381D696EB100E91234 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

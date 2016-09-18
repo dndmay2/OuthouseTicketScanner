@@ -1,5 +1,5 @@
 //
-//  AlbumDetailsViewController.swift
+//  TicketDetailsViewController.swift
 //  Outhouse
 //
 //  Created by Derek May on 8/21/16.
@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class AlbumDetailsViewController: UIViewController {
+class TicketDetailsViewController: UIViewController {
 
     @IBOutlet weak var ticketCodeLabel: UILabel!
     @IBOutlet weak var scanMessageLabel: UILabel!
@@ -18,20 +18,21 @@ class AlbumDetailsViewController: UIViewController {
     @IBOutlet weak var StopSignImage: UIImageView!
     @IBOutlet weak var CheckMarkImage: UIImageView!
     
+    var passedInEvent:String!
+    
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        ticketCodeLabel.text = "Let's scan a ticket!"
+        print("PASSED IN", passedInEvent)
+        ticketCodeLabel.text = "Press Scan Ticket"
         scanMessageLabel.text = ""
         ticketsScannedLabel.text = "0"
         totalTicketsLabel.text = "0"
         StopSignImage.hidden = true
         CheckMarkImage.hidden = true
-        print("here")
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(setTicketCountLabels(_:)), name: "ShowTicketCountLabels", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(setTicketStatusLabels(_:)), name: "ShowTicketStatusLabels", object: nil)
@@ -47,13 +48,13 @@ class AlbumDetailsViewController: UIViewController {
     }
     
     func setTicketCountLabels(notification: NSNotification){
-        print("in setTicketCountLabels in AlbumDetailsViewController")
+        print("in setTicketCountLabels in TicketDetailsViewController")
         self.ticketsScannedLabel.text = DataService.dataService.NUM_SCANNED_TICKETS
         self.totalTicketsLabel.text = DataService.dataService.NUM_TICKETS
     }
     
     func setTicketStatusLabels(notification: NSNotification){
-        print("in setTicketStatusLabels in AlbumDetailsViewController")
+        print("in setTicketStatusLabels in TicketDetailsViewController")
         print("  code=", DataService.dataService.TICKET_CODE,
               ", message=", DataService.dataService.TICKET_STATUS_MESSAGE)
         
@@ -63,7 +64,7 @@ class AlbumDetailsViewController: UIViewController {
     }
     
     func showResult(notification: NSNotification){
-        print("in showResult in AlbumDetailsViewController")
+        print("in showResult in TicketDetailsViewController")
         
         if DataService.dataService.TICKET_STATUS == "true" {
             print("result true\n")
