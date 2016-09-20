@@ -12,7 +12,8 @@ import UIKit
 class UpcomingEventsTableViewController: UITableViewController {
     
     @IBOutlet var eventTable: UITableView!
-    var eventArray:[String] = []
+    var eventArray:[UpcomingEvent] = [] //Need this since eventDict is unordered
+    var eventDict: [String: String] = [:]
     // Creating A variable to save the text from the selected label and send it to the next view controller
     var sendSelectedData = NSString()
     
@@ -22,16 +23,25 @@ class UpcomingEventsTableViewController: UITableViewController {
         eventTable.dataSource = self
         eventTable.delegate = self
         eventTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "customcell")
+        eventTable.backgroundColor = UIColor.blackColor()
         
         processAppDefaults()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateEventTable(_:)), name: "ShowUpcomingEvents", object: nil)
-        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(getEventsForVenue(_:)), name: "GetEventsForVenue", object: nil)
+        getEventDates()
+    }
+    
+    func getEventDates() {
+        DataService.getAllUpcomingEventsWithDate()        
+    }
+    
+    func getEventsForVenue(notification: NSNotification) {
         let id = NSUserDefaults.standardUserDefaults().stringForKey("venueID")
         if (id != nil) { // This is where it breaks
             print("id is", id!)
             DataService.getUpcomingEventsForVenue(id!)
-            print(DataService.dataService.UPCOMING_EVENTS)
+            print(DataService.dataService.UPCOMING_EVENTS_FOR_VENUE)
         } else {
             print("id is", id)
         }
@@ -45,9 +55,9 @@ class UpcomingEventsTableViewController: UITableViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        print("in reload", DataService.dataService.UPCOMING_EVENTS)
+        print("in viewDidAppear")
         super.viewDidAppear(animated)
-        eventTable.reloadData()
+        //eventTable.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -57,7 +67,19 @@ class UpcomingEventsTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("EventCell") as UITableViewCell!
-        cell.textLabel?.text = eventArray[indexPath.row]
+        
+        cell.textLabel?.text = eventArray[indexPath.row].eventName
+        cell.detailTextLabel?.text = eventArray[indexPath.row].eventDate
+        print(eventArray[indexPath.row].eventDate)
+        cell.backgroundColor = UIColor.blackColor()
+        cell.textLabel?.textColor = UIColor.redColor()
+        cell.textLabel?.adjustsFontSizeToFitWidth
+        cell.textLabel?.textAlignment = .Center
+        cell.textLabel!.font = UIFont(name: "Noteworthy-Bold", size: (cell.textLabel!.font?.pointSize)!)
+        cell.detailTextLabel?.textColor = UIColor.redColor()
+        cell.detailTextLabel?.adjustsFontSizeToFitWidth
+        cell.detailTextLabel?.textAlignment = .Center
+//        cell.detailTextLabel!.font = UIFont(name: "Noteworthy-Bold", size: (cell.detailTextLabel!.font?.pointSize)!)
         return cell
     }
 
@@ -66,10 +88,12 @@ class UpcomingEventsTableViewController: UITableViewController {
     }
 
     func updateEventTable(notification: NSNotification){
-        print("myupdate", DataService.dataService.UPCOMING_EVENTS)
+        print("myupdate", DataService.dataService.UPCOMING_EVENTS_FOR_VENUE)
         eventArray = []
-        for event in DataService.dataService.UPCOMING_EVENTS {
-            eventArray.append(event.eventName)
+        eventDict = [:]
+        for event in DataService.dataService.UPCOMING_EVENTS_FOR_VENUE {
+            eventArray.append(event)
+            eventDict[event.eventName] = event.eventId
         }
         eventTable.reloadData()
     }
@@ -84,7 +108,7 @@ class UpcomingEventsTableViewController: UITableViewController {
         let currentCell = eventTable.cellForRowAtIndexPath(indexPathVal) as UITableViewCell!;
         print("\(currentCell.textLabel!.text)")
         //Storing the data to a string from the selected cell
-        sendSelectedData = currentCell.textLabel!.text!
+        sendSelectedData = eventDict[currentCell.textLabel!.text!]!
         print("what i'm going to send:", sendSelectedData)
         //Now here I am performing the segue action after cell selection to the other view controller by using the segue Identifier Name
         self.performSegueWithIdentifier("scanForEvent", sender: self)

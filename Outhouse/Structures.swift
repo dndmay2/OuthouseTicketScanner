@@ -13,10 +13,12 @@ class UpcomingEvent {
     
     private(set) var eventId: String!
     private(set) var eventName: String!
+    private(set) var eventDate: String!
     
-    init(id: String, name: String) {
+    init(id: String, name: String, date: String) {
         self.eventId = "\(id)"
         self.eventName = "\(name)"
+        self.eventDate = "\(date)"
     }
     
 }

@@ -20,7 +20,8 @@ class DataService {
     private(set) var TICKET_CODE = "Press Scan Ticket"
     private(set) var TICKET_STATUS = "None"
     private(set) var TICKET_STATUS_MESSAGE = ""
-    private(set) var UPCOMING_EVENTS: [UpcomingEvent] = []
+    private(set) var UPCOMING_EVENTS_FOR_VENUE: [UpcomingEvent] = []
+    private(set) var UPCOMING_EVENTS_WITH_DATE: [String:String] = [:]
     private(set) var soapRequest = AEXMLElement()
     //private(set) var TEST_VAR = AnyObject
     
@@ -75,12 +76,17 @@ class DataService {
         var arglist = [String:String]()
         switch command{
         case "ProcessTicketCode":
-            arglist = ["EventID": TEST_EVENT_ID, "TicketCode": self.dataService.TICKET_CODE]
+            arglist = ["EventID": id!, "TicketCode": self.dataService.TICKET_CODE]
         case "GetScannedTicketCountForEvent":
-            arglist = ["EventID": TEST_EVENT_ID]
+            arglist = ["EventID": id!]
+        case "GetTicketCountForEvent":
+            arglist = ["EventID": id!]
         case "GetUpcommingEvents_Custom":
             arglist = ["VenueID": id!]
+        case "GetUpcommingEvents":
+            arglist = [:]
         default:
+            print(command, "has no event id passed in")
             arglist = ["EventID": TEST_EVENT_ID]
         }
         let xmlString = DataService.buildXml(command, keyWordPairs: arglist)
@@ -146,9 +152,10 @@ class DataService {
 //        }
 //    }
     
-    static func getTicketCountForEvent() {
+    static func getTicketCountForEvent(eventID: String) {
         let cmd = "GetTicketCountForEvent"
-        DataService.postSoapCommand(cmd, id: nil){ responseObject, error in
+        print("in", cmd, "eventId", eventID)
+        DataService.postSoapCommand(cmd, id: eventID){ responseObject, error in
             // use responseObject and error here
             if (responseObject != nil) {
                 switch responseObject!["soap:Envelope"]["soap:Body"][cmd + "Response"][cmd + "Result"] {
@@ -171,9 +178,10 @@ class DataService {
         }
     }
     
-    static func getScannedTicketCountForEvent() {
+    static func getScannedTicketCountForEvent(eventID: String) {
         let cmd = "GetScannedTicketCountForEvent"
-        DataService.postSoapCommand(cmd, id: nil){ responseObject, error in
+        print("in", cmd, "event", eventID)
+        DataService.postSoapCommand(cmd, id: eventID){ responseObject, error in
             // use responseObject and error here
             if (responseObject != nil) {
                 let count =  responseObject!["soap:Envelope"]["soap:Body"][cmd + "Response"][cmd + "Result"].element!.text!
@@ -235,16 +243,35 @@ class DataService {
     
     static func getUpcomingEventsForVenue(venue: String) {
         let cmd = "GetUpcommingEvents_Custom"
+        print("in", cmd)
         DataService.postSoapCommand(cmd, id: venue){ responseObject, error in
             var events: [UpcomingEvent] = []
             var event: UpcomingEvent
+            var date: String!
             // use responseObject and error here
             for elem in responseObject!["soap:Envelope"]["soap:Body"][cmd + "Response"][cmd + "Result"]["diffgr:diffgram"]["NewDataSet"]["Table1"] {
-                event = UpcomingEvent(id: elem["EventID"].element!.text!, name: elem["EventName"].element!.text!)
+                date = self.dataService.UPCOMING_EVENTS_WITH_DATE[elem["EventID"].element!.text!]
+                if date == nil {
+                    date = "1/1/2001"
+                }
+                event = UpcomingEvent(id: elem["EventID"].element!.text!, name: elem["EventName"].element!.text!, date: date)
                 events.append(event)
             }
-            self.dataService.UPCOMING_EVENTS = events
+            self.dataService.UPCOMING_EVENTS_FOR_VENUE = events
             NSNotificationCenter.defaultCenter().postNotificationName("ShowUpcomingEvents", object: nil)
+        }
+    }
+
+    static func getAllUpcomingEventsWithDate() {
+        let cmd = "GetUpcommingEvents"
+        print("in", cmd)
+        DataService.postSoapCommand(cmd, id: nil){ responseObject, error in
+            // use responseObject and error here
+            for elem in responseObject!["soap:Envelope"]["soap:Body"][cmd + "Response"][cmd + "Result"]["diffgr:diffgram"]["NewDataSet"]["Table1"] {
+                let arr = elem["EventName"].element!.text!.componentsSeparatedByString("-")
+                self.dataService.UPCOMING_EVENTS_WITH_DATE[elem["EventID"].element!.text!] = arr.last!
+            }
+            NSNotificationCenter.defaultCenter().postNotificationName("GetEventsForVenue", object: nil)
         }
     }
 

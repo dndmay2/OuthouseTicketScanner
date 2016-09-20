@@ -131,9 +131,9 @@ class BarcodeReaderViewController: UIViewController, AVCaptureMetadataOutputObje
         let trimmedCodeString = "\(trimmedCode)"
         DataService.processTicketCode(trimmedCodeString)
 
-        runAfterDelay(0.5) {
-            DataService.getScannedTicketCountForEvent()
-        }
+//        runAfterDelay(0.5) {
+//            DataService.getScannedTicketCountForEvent()
+//        }
         self.navigationController?.popViewControllerAnimated(true)
     }
 }

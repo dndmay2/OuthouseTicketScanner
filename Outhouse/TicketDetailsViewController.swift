@@ -37,14 +37,20 @@ class TicketDetailsViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(setTicketCountLabels(_:)), name: "ShowTicketCountLabels", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(setTicketStatusLabels(_:)), name: "ShowTicketStatusLabels", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(showResult(_:)), name: "ShowResultImage", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(lookupTicketScanCount(_:)), name: "UpdateTicketScanCount", object: nil)
 
-        DataService.getTicketCountForEvent()
-        DataService.getScannedTicketCountForEvent()
+        DataService.getTicketCountForEvent(passedInEvent)
+        DataService.getScannedTicketCountForEvent(passedInEvent)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 
+    }
+
+    func lookupTicketScanCount(notification: NSNotification){
+        DataService.getScannedTicketCountForEvent(passedInEvent)
+        DataService.getTicketCountForEvent(passedInEvent)
     }
     
     func setTicketCountLabels(notification: NSNotification){
