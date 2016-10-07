@@ -172,8 +172,8 @@
 				BD89C8FF1D696ADA00678160 /* ViewController.swift */,
 				BDFE84301D696EB100E91234 /* Structures.swift */,
 				BDFE84451D6BD79A00E91234 /* ShowSplashScreenViewController.swift */,
-				BDFE84311D696EB100E91234 /* TicketDetailsViewController.swift */,
 				BDCC22D61D8E151800909103 /* UpcomingEventsTableViewController.swift */,
+				BDFE84311D696EB100E91234 /* TicketDetailsViewController.swift */,
 				BDFE84321D696EB100E91234 /* BarcodeReaderViewController.swift */,
 				BDFE84341D696EB100E91234 /* DataService.swift */,
 				BD89C9011D696ADA00678160 /* Main.storyboard */,
@@ -687,6 +687,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B92E08EDC519527F601C5576 /* Pods-OuthouseUITests.debug.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_ENTITLEMENTS[sdk=*]" = "";
 				INFOPLIST_FILE = OuthouseUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Amayzing.OuthouseUITests;

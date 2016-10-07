@@ -73,6 +73,7 @@ class DataService {
     }
     
     static func postSoapCommand(command: String, id: String?, completion : (XMLIndexer?, NSError?)->()) {
+        print("postSoapCommand", command, id, self.dataService.TICKET_CODE)
         var arglist = [String:String]()
         switch command{
         case "ProcessTicketCode":
@@ -196,10 +197,11 @@ class DataService {
         }
     }
     
-    static func processTicketCode(codeNumber: String) {
+    static func processTicketCode(eventID: String, codeNumber: String) {
         let cmd = "ProcessTicketCode"
+        print("In", cmd, "codeNumber:", codeNumber)
         self.dataService.TICKET_CODE = codeNumber
-        DataService.postSoapCommand(cmd, id: nil){ responseObject, error in
+        DataService.postSoapCommand(cmd, id: eventID){ responseObject, error in
             if (responseObject != nil) {
                 // use responseObject and error here
                 switch responseObject!["soap:Envelope"]["soap:Body"][cmd + "Response"][cmd + "Result"] {

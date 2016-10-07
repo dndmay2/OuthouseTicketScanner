@@ -10,15 +10,24 @@ import XCTest
 @testable import Outhouse
 
 class OuthouseTests: XCTestCase {
+    var splashVC: ShowSplashScreenViewController!
+    var eventsVC: UpcomingEventsTableViewController!
     
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        splashVC = storyboard.instantiateInitialViewController() as! ShowSplashScreenViewController
+        //eventsVC = storyboard.instantiateViewControllerWithIdentifier(<#T##identifier: String##String#>)("Upcoming Events")
+   }
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+    }
+    
+    func testPercentageCalculator() {
+        XCTAssert(true)
     }
     
     func testExample() {

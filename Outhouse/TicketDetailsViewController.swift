@@ -19,7 +19,7 @@ class TicketDetailsViewController: UIViewController {
     @IBOutlet weak var CheckMarkImage: UIImageView!
     
     var passedInEvent:String!
-    
+
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
@@ -88,7 +88,22 @@ class TicketDetailsViewController: UIViewController {
             CheckMarkImage.hidden = true
         }
     }
-    
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        //Here i am checking the Segue and Saving the data to an array on the next view Controller also sending it to the next view COntroller
+        print("in prepareForSeque to BarcodeReader")
+        if segue.identifier == "gotoBarcodeReaderVC"{
+            //Creating an object of the second View controller
+            let controller = segue.destinationViewController as! BarcodeReaderViewController
+            //Sending the data here
+            controller.passedInEvent = passedInEvent as String
+            
+        }
+        let backItem = UIBarButtonItem()
+        backItem.title = "Details"
+        navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
+   }
+
     
 
 }

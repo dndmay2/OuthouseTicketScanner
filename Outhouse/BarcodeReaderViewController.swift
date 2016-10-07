@@ -14,8 +14,11 @@ class BarcodeReaderViewController: UIViewController, AVCaptureMetadataOutputObje
     var session: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
 
+    var passedInEvent:String!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("PASSED IN to barcodeReader", passedInEvent)
 
         // Create a session object.
         session = AVCaptureSession()
@@ -75,6 +78,7 @@ class BarcodeReaderViewController: UIViewController, AVCaptureMetadataOutputObje
         }
         if Platform.isSimulator {
             print("Running on Simulator")
+            print(1, TEST_TICKET_CODE)
             barcodeDetected(TEST_TICKET_CODE)
             session.stopRunning()
         }
@@ -127,9 +131,11 @@ class BarcodeReaderViewController: UIViewController, AVCaptureMetadataOutputObje
 
     func barcodeDetected(code: String) {
         let trimmedCode = code.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-        
+        print("in barcodeDetected")
+        print(2, code)
+
         let trimmedCodeString = "\(trimmedCode)"
-        DataService.processTicketCode(trimmedCodeString)
+        DataService.processTicketCode(passedInEvent, codeNumber: trimmedCodeString)
 
 //        runAfterDelay(0.5) {
 //            DataService.getScannedTicketCountForEvent()

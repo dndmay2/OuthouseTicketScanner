@@ -15,14 +15,14 @@ class UpcomingEventsTableViewController: UITableViewController {
     var eventArray:[UpcomingEvent] = [] //Need this since eventDict is unordered
     var eventDict: [String: String] = [:]
     // Creating A variable to save the text from the selected label and send it to the next view controller
-    var sendSelectedData = NSString()
+    var sendSelectedEventID = NSString()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         eventTable.dataSource = self
         eventTable.delegate = self
-        eventTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "customcell")
+        eventTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "EventCell")
         eventTable.backgroundColor = UIColor.blackColor()
         
         processAppDefaults()
@@ -66,7 +66,8 @@ class UpcomingEventsTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("EventCell") as UITableViewCell!
+        //let cell = tableView.dequeueReusableCellWithIdentifier("EventCell") as UITableViewCell!
+        let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "EventCell") as UITableViewCell
         
         cell.textLabel?.text = eventArray[indexPath.row].eventName
         cell.detailTextLabel?.text = eventArray[indexPath.row].eventDate
@@ -108,21 +109,24 @@ class UpcomingEventsTableViewController: UITableViewController {
         let currentCell = eventTable.cellForRowAtIndexPath(indexPathVal) as UITableViewCell!;
         print("\(currentCell.textLabel!.text)")
         //Storing the data to a string from the selected cell
-        sendSelectedData = eventDict[currentCell.textLabel!.text!]!
-        print("what i'm going to send:", sendSelectedData)
+        sendSelectedEventID = eventDict[currentCell.textLabel!.text!]!
+        print("what i'm going to send:", sendSelectedEventID)
         //Now here I am performing the segue action after cell selection to the other view controller by using the segue Identifier Name
-        self.performSegueWithIdentifier("scanForEvent", sender: self)
+        self.performSegueWithIdentifier("gotoTicketDetailsVC", sender: self)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         //Here i am checking the Segue and Saving the data to an array on the next view Controller also sending it to the next view COntroller
-        if segue.identifier == "scanForEvent"{
+        if segue.identifier == "gotoTicketDetailsVC"{
             //Creating an object of the second View controller
             let controller = segue.destinationViewController as! TicketDetailsViewController
             //Sending the data here
-            controller.passedInEvent = sendSelectedData as String
+            controller.passedInEvent = sendSelectedEventID as String
             
         }
+        let backItem = UIBarButtonItem()
+        backItem.title = "Events"
+        navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
     }
 }
 

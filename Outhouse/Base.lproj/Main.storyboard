@@ -65,7 +65,7 @@
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="DBn-zX-a5A" kind="show" id="xo2-Ll-hYb"/>
+                                    <segue destination="DBn-zX-a5A" kind="show" identifier="gotoBarcodeReaderVC" id="xo2-Ll-hYb"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tickets Scanned:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ye2-Oo-Oz5">
@@ -181,9 +181,13 @@
                                 <exclude reference="5mG-Yi-NkI"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="A98-QH-U4W"/>
-                                <exclude reference="sCt-ee-xkf"/>
-                                <exclude reference="vvM-vD-iwE"/>
+                                <exclude reference="YO9-Dt-Sr9"/>
+                                <exclude reference="fqb-t4-iLs"/>
+                                <exclude reference="hra-Pn-aMQ"/>
+                                <exclude reference="7xl-3h-xgg"/>
+                                <exclude reference="Ney-f9-fE8"/>
+                                <exclude reference="Oy7-7R-51v"/>
+                                <exclude reference="1lU-Bv-miP"/>
                                 <exclude reference="4x5-23-Ld7"/>
                                 <exclude reference="937-CN-gjd"/>
                                 <exclude reference="A5D-dk-gIH"/>
@@ -198,15 +202,11 @@
                                 <exclude reference="wur-9x-HSU"/>
                                 <exclude reference="yyL-KT-WsR"/>
                                 <exclude reference="Ykd-45-zGf"/>
-                                <exclude reference="Ney-f9-fE8"/>
-                                <exclude reference="Oy7-7R-51v"/>
-                                <exclude reference="YO9-Dt-Sr9"/>
-                                <exclude reference="fqb-t4-iLs"/>
-                                <exclude reference="hra-Pn-aMQ"/>
+                                <exclude reference="A98-QH-U4W"/>
+                                <exclude reference="sCt-ee-xkf"/>
+                                <exclude reference="vvM-vD-iwE"/>
                                 <exclude reference="OlO-DP-phg"/>
                                 <exclude reference="pFl-bv-8GD"/>
-                                <exclude reference="1lU-Bv-miP"/>
-                                <exclude reference="7xl-3h-xgg"/>
                                 <exclude reference="2pF-3b-Sj6"/>
                             </mask>
                         </variation>
@@ -220,12 +220,13 @@
                                 <include reference="5mG-Yi-NkI"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="7Na-LP-RxW"/>
-                                <include reference="A98-QH-U4W"/>
-                                <exclude reference="rSa-Kr-aKL"/>
-                                <include reference="sCt-ee-xkf"/>
-                                <exclude reference="uyw-dc-kdk"/>
-                                <include reference="vvM-vD-iwE"/>
+                                <include reference="YO9-Dt-Sr9"/>
+                                <include reference="fqb-t4-iLs"/>
+                                <include reference="hra-Pn-aMQ"/>
+                                <include reference="7xl-3h-xgg"/>
+                                <include reference="Ney-f9-fE8"/>
+                                <include reference="Oy7-7R-51v"/>
+                                <include reference="1lU-Bv-miP"/>
                                 <include reference="4x5-23-Ld7"/>
                                 <include reference="937-CN-gjd"/>
                                 <include reference="A5D-dk-gIH"/>
@@ -243,16 +244,15 @@
                                 <exclude reference="Pb6-nI-PKg"/>
                                 <exclude reference="XlF-M1-jVl"/>
                                 <include reference="Ykd-45-zGf"/>
-                                <include reference="Ney-f9-fE8"/>
-                                <include reference="Oy7-7R-51v"/>
-                                <include reference="YO9-Dt-Sr9"/>
-                                <include reference="fqb-t4-iLs"/>
-                                <include reference="hra-Pn-aMQ"/>
+                                <exclude reference="7Na-LP-RxW"/>
+                                <include reference="A98-QH-U4W"/>
+                                <exclude reference="rSa-Kr-aKL"/>
+                                <include reference="sCt-ee-xkf"/>
+                                <exclude reference="uyw-dc-kdk"/>
+                                <include reference="vvM-vD-iwE"/>
                                 <exclude reference="46z-tD-ykz"/>
                                 <include reference="OlO-DP-phg"/>
                                 <include reference="pFl-bv-8GD"/>
-                                <include reference="1lU-Bv-miP"/>
-                                <include reference="7xl-3h-xgg"/>
                                 <include reference="2pF-3b-Sj6"/>
                                 <exclude reference="Was-3P-dhP"/>
                             </mask>
@@ -331,18 +331,20 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zNG-vU-lhY">
+                                            <rect key="frame" x="15" y="37" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="widthClass=compact">
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             </variation>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tlh-XA-4jb">
+                                            <rect key="frame" x="15" y="57.5" width="59" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="widthClass=compact">
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -363,7 +365,7 @@
                     </refreshControl>
                     <connections>
                         <outlet property="eventTable" destination="biV-cB-yxB" id="G0Q-nT-N2G"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="scanForEvent" id="9pL-eP-xLv"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="gotoTicketDetailsVC" id="9pL-eP-xLv"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x29-QX-d03" userLabel="First Responder" sceneMemberID="firstResponder"/>
