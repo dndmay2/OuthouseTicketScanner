@@ -14,12 +14,12 @@ class ShowSplashScreenViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        performSelector(#selector(ShowSplashScreenViewController.showNavController), withObject: nil, afterDelay: 2)
+        perform(#selector(ShowSplashScreenViewController.showNavController), with: nil, afterDelay: 2)
     }
     
     func showNavController()
     {
-        performSegueWithIdentifier("showSplashScreen", sender: self)
+        performSegue(withIdentifier: "showSplashScreen", sender: self)
     }
 
     override func didReceiveMemoryWarning() {

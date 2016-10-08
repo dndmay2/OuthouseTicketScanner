@@ -16,7 +16,7 @@ class OuthouseTests: XCTestCase {
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         splashVC = storyboard.instantiateInitialViewController() as! ShowSplashScreenViewController
         //eventsVC = storyboard.instantiateViewControllerWithIdentifier(<#T##identifier: String##String#>)("Upcoming Events")
    }
@@ -37,7 +37,7 @@ class OuthouseTests: XCTestCase {
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }

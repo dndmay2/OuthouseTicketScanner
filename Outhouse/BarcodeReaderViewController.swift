@@ -24,7 +24,7 @@ class BarcodeReaderViewController: UIViewController, AVCaptureMetadataOutputObje
         session = AVCaptureSession()
         
         // Set the captureDevice.
-        let videoCaptureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
+        let videoCaptureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
         
         // Create input object.
         let videoInput: AVCaptureDeviceInput?
@@ -50,7 +50,7 @@ class BarcodeReaderViewController: UIViewController, AVCaptureMetadataOutputObje
             session.addOutput(metadataOutput)
             
             // Send captured data to the delegate object via a serial queue.
-            metadataOutput.setMetadataObjectsDelegate(self, queue: dispatch_get_main_queue())
+            metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
             
             // Set barcode type for which to scan: EAN-13.
             metadataOutput.metadataObjectTypes = [AVMetadataObjectTypeCode128Code]
@@ -70,10 +70,10 @@ class BarcodeReaderViewController: UIViewController, AVCaptureMetadataOutputObje
         session.startRunning()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if (session?.running == false) {
+        if (session?.isRunning == false) {
             session.startRunning()
         }
         if Platform.isSimulator {
@@ -84,29 +84,32 @@ class BarcodeReaderViewController: UIViewController, AVCaptureMetadataOutputObje
         }
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        if (session?.running == true) {
+        if (session?.isRunning == true) {
             session.stopRunning()
         }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-
     }
+    
     
     func scanningNotPossible() {
         // Let the user know that scanning isn't possible with the current device.
-        let alert = UIAlertController(title: "Can't Scan.", message: "Let's try a device equipped with a camera.", preferredStyle: .Alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-        presentViewController(alert, animated: true, completion: nil)
+        let alert = UIAlertController(title: "Can't Scan.", message: "Let's try a device equipped with a camera.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
         session = nil
     }
 
-    func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
+    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
         
+        print("in captureOutput")
+        session.stopRunning()
+        print("after stopRunning")
         // Get the first object from the metadataObjects array.
         if let barcodeData = metadataObjects.first {
             // Turn it into machine readable code
@@ -119,18 +122,16 @@ class BarcodeReaderViewController: UIViewController, AVCaptureMetadataOutputObje
             // Vibrate the device to give the user some feedback.
             //AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             
-            // Avoid a very buzzy device.
-            session.stopRunning()
         }
     }
 
-    func runAfterDelay(delay: NSTimeInterval, block: dispatch_block_t) {
-        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
-        dispatch_after(time, dispatch_get_main_queue(), block)
+    func runAfterDelay(_ delay: TimeInterval, block: @escaping ()->()) {
+        let time = DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+        DispatchQueue.main.asyncAfter(deadline: time, execute: block)
     }
 
-    func barcodeDetected(code: String) {
-        let trimmedCode = code.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+    func barcodeDetected(_ code: String) {
+        let trimmedCode = code.trimmingCharacters(in: CharacterSet.whitespaces)
         print("in barcodeDetected")
         print(2, code)
 
@@ -140,7 +141,7 @@ class BarcodeReaderViewController: UIViewController, AVCaptureMetadataOutputObje
 //        runAfterDelay(0.5) {
 //            DataService.getScannedTicketCountForEvent()
 //        }
-        self.navigationController?.popViewControllerAnimated(true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
 }
 

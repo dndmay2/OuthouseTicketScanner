@@ -21,7 +21,7 @@ class TicketDetailsViewController: UIViewController {
     var passedInEvent:String!
 
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func viewDidLoad() {
@@ -31,13 +31,13 @@ class TicketDetailsViewController: UIViewController {
         scanMessageLabel.text = ""
         ticketsScannedLabel.text = "0"
         totalTicketsLabel.text = "0"
-        StopSignImage.hidden = true
-        CheckMarkImage.hidden = true
+        StopSignImage.isHidden = true
+        CheckMarkImage.isHidden = true
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(setTicketCountLabels(_:)), name: "ShowTicketCountLabels", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(setTicketStatusLabels(_:)), name: "ShowTicketStatusLabels", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(showResult(_:)), name: "ShowResultImage", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(lookupTicketScanCount(_:)), name: "UpdateTicketScanCount", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setTicketCountLabels(_:)), name: NSNotification.Name(rawValue: "ShowTicketCountLabels"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setTicketStatusLabels(_:)), name: NSNotification.Name(rawValue: "ShowTicketStatusLabels"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showResult(_:)), name: NSNotification.Name(rawValue: "ShowResultImage"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(lookupTicketScanCount(_:)), name: NSNotification.Name(rawValue: "UpdateTicketScanCount"), object: nil)
 
         DataService.getTicketCountForEvent(passedInEvent)
         DataService.getScannedTicketCountForEvent(passedInEvent)
@@ -48,18 +48,18 @@ class TicketDetailsViewController: UIViewController {
 
     }
 
-    func lookupTicketScanCount(notification: NSNotification){
+    func lookupTicketScanCount(_ notification: Notification){
         DataService.getScannedTicketCountForEvent(passedInEvent)
         DataService.getTicketCountForEvent(passedInEvent)
     }
     
-    func setTicketCountLabels(notification: NSNotification){
+    func setTicketCountLabels(_ notification: Notification){
         print("in setTicketCountLabels in TicketDetailsViewController")
         self.ticketsScannedLabel.text = DataService.dataService.NUM_SCANNED_TICKETS
         self.totalTicketsLabel.text = DataService.dataService.NUM_TICKETS
     }
     
-    func setTicketStatusLabels(notification: NSNotification){
+    func setTicketStatusLabels(_ notification: Notification){
         print("in setTicketStatusLabels in TicketDetailsViewController")
         print("  code=", DataService.dataService.TICKET_CODE,
               ", message=", DataService.dataService.TICKET_STATUS_MESSAGE)
@@ -69,32 +69,32 @@ class TicketDetailsViewController: UIViewController {
         
     }
     
-    func showResult(notification: NSNotification){
+    func showResult(_ notification: Notification){
         print("in showResult in TicketDetailsViewController")
         
         if DataService.dataService.TICKET_STATUS == "true" {
             print("result true\n")
             AudioServicesPlaySystemSound(1333)
-            StopSignImage.hidden = true
-            CheckMarkImage.hidden = false
+            StopSignImage.isHidden = true
+            CheckMarkImage.isHidden = false
         } else if DataService.dataService.TICKET_STATUS == "false" {
             print("result false\n")
             AudioServicesPlaySystemSound(1029)
-            StopSignImage.hidden = false
-            CheckMarkImage.hidden = true
+            StopSignImage.isHidden = false
+            CheckMarkImage.isHidden = true
         } else {
             print("result none\n")
-            StopSignImage.hidden = true
-            CheckMarkImage.hidden = true
+            StopSignImage.isHidden = true
+            CheckMarkImage.isHidden = true
         }
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //Here i am checking the Segue and Saving the data to an array on the next view Controller also sending it to the next view COntroller
         print("in prepareForSeque to BarcodeReader")
         if segue.identifier == "gotoBarcodeReaderVC"{
             //Creating an object of the second View controller
-            let controller = segue.destinationViewController as! BarcodeReaderViewController
+            let controller = segue.destination as! BarcodeReaderViewController
             //Sending the data here
             controller.passedInEvent = passedInEvent as String
             

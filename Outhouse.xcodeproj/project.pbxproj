@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		32DA5D7786EC4612F053ACCC /* Pods_Outhouse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F207BBA92B33C4C2C86274D0 /* Pods_Outhouse.framework */; };
-		A27044F24946F69AD0DF3E1A /* Pods_OuthouseUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A87446343C60168A90CEB75 /* Pods_OuthouseUITests.framework */; };
+		00CB8DFCE46C48F28352399B /* Pods_OuthouseUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A312ECD408C88705C6C5E31D /* Pods_OuthouseUITests.framework */; };
+		26E97D73E08391E80228DFC9 /* Pods_OuthouseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 513BD276FDC5AB8890F2220D /* Pods_OuthouseTests.framework */; };
+		AB9D0B2A9C2943A20413621C /* Pods_Outhouse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24B7FA98AD6122E55D1F98AE /* Pods_Outhouse.framework */; };
 		BD89C8FE1D696ADA00678160 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD89C8FD1D696ADA00678160 /* AppDelegate.swift */; };
 		BD89C9001D696ADA00678160 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD89C8FF1D696ADA00678160 /* ViewController.swift */; };
 		BD89C9031D696ADA00678160 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD89C9011D696ADA00678160 /* Main.storyboard */; };
@@ -30,7 +31,6 @@
 		BDFE84431D6BD04400E91234 /* barcodeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = BDFE84411D6BD04400E91234 /* barcodeButton.png */; };
 		BDFE84461D6BD79A00E91234 /* ShowSplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFE84451D6BD79A00E91234 /* ShowSplashScreenViewController.swift */; };
 		BDFE84481D6BDD5100E91234 /* outhouseFull.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BDFE84471D6BDD5100E91234 /* outhouseFull.jpg */; };
-		EBBAD2E4EA658539CA753C1E /* Pods_OuthouseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78BEAE7862178282C99E8197 /* Pods_OuthouseTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,12 +51,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		08254B4F212ED9BBFCB4A277 /* Pods-OuthouseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OuthouseTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OuthouseTests/Pods-OuthouseTests.release.xcconfig"; sourceTree = "<group>"; };
-		5702110529DE31FFE40DF4C6 /* Pods-Outhouse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Outhouse.release.xcconfig"; path = "Pods/Target Support Files/Pods-Outhouse/Pods-Outhouse.release.xcconfig"; sourceTree = "<group>"; };
-		78BEAE7862178282C99E8197 /* Pods_OuthouseTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OuthouseTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		922503E2F1644CF4B61D0519 /* Pods-OuthouseUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OuthouseUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OuthouseUITests/Pods-OuthouseUITests.release.xcconfig"; sourceTree = "<group>"; };
-		9A87446343C60168A90CEB75 /* Pods_OuthouseUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OuthouseUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B92E08EDC519527F601C5576 /* Pods-OuthouseUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OuthouseUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OuthouseUITests/Pods-OuthouseUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		24B7FA98AD6122E55D1F98AE /* Pods_Outhouse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Outhouse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		513BD276FDC5AB8890F2220D /* Pods_OuthouseTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OuthouseTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		68F787D2BBC25A9CB9A90C59 /* Pods-Outhouse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Outhouse.release.xcconfig"; path = "Pods/Target Support Files/Pods-Outhouse/Pods-Outhouse.release.xcconfig"; sourceTree = "<group>"; };
+		76DA97DE2CD2D42F17CA90CA /* Pods-Outhouse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Outhouse.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Outhouse/Pods-Outhouse.debug.xcconfig"; sourceTree = "<group>"; };
+		9134267F48D2696B493840B9 /* Pods-OuthouseUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OuthouseUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OuthouseUITests/Pods-OuthouseUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A312ECD408C88705C6C5E31D /* Pods_OuthouseUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OuthouseUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD89C8FA1D696ADA00678160 /* Outhouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Outhouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD89C8FD1D696ADA00678160 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD89C8FF1D696ADA00678160 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -84,9 +84,9 @@
 		BDFE84411D6BD04400E91234 /* barcodeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = barcodeButton.png; path = Images/barcodeButton.png; sourceTree = "<group>"; };
 		BDFE84451D6BD79A00E91234 /* ShowSplashScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowSplashScreenViewController.swift; sourceTree = "<group>"; };
 		BDFE84471D6BDD5100E91234 /* outhouseFull.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = outhouseFull.jpg; path = Images/outhouseFull.jpg; sourceTree = "<group>"; };
-		D78F3EA7C14C442DCDB45521 /* Pods-Outhouse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Outhouse.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Outhouse/Pods-Outhouse.debug.xcconfig"; sourceTree = "<group>"; };
-		F207BBA92B33C4C2C86274D0 /* Pods_Outhouse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Outhouse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FE54DD63CA0BE0A960625128 /* Pods-OuthouseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OuthouseTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OuthouseTests/Pods-OuthouseTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D83AFBBB97506E95E4F500D6 /* Pods-OuthouseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OuthouseTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OuthouseTests/Pods-OuthouseTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DDE1D0C6AEDF006B42794367 /* Pods-OuthouseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OuthouseTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OuthouseTests/Pods-OuthouseTests.release.xcconfig"; sourceTree = "<group>"; };
+		FB569DC997D4B279089F1117 /* Pods-OuthouseUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OuthouseUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OuthouseUITests/Pods-OuthouseUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32DA5D7786EC4612F053ACCC /* Pods_Outhouse.framework in Frameworks */,
+				AB9D0B2A9C2943A20413621C /* Pods_Outhouse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,7 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBBAD2E4EA658539CA753C1E /* Pods_OuthouseTests.framework in Frameworks */,
+				26E97D73E08391E80228DFC9 /* Pods_OuthouseTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,32 +110,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A27044F24946F69AD0DF3E1A /* Pods_OuthouseUITests.framework in Frameworks */,
+				00CB8DFCE46C48F28352399B /* Pods_OuthouseUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		009409344CF80A8DFA445A13 /* Frameworks */ = {
+		81ED4154676D61A6DD1E4D9A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F207BBA92B33C4C2C86274D0 /* Pods_Outhouse.framework */,
-				78BEAE7862178282C99E8197 /* Pods_OuthouseTests.framework */,
-				9A87446343C60168A90CEB75 /* Pods_OuthouseUITests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		2A176954B200A04A4FBB5E9B /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				D78F3EA7C14C442DCDB45521 /* Pods-Outhouse.debug.xcconfig */,
-				5702110529DE31FFE40DF4C6 /* Pods-Outhouse.release.xcconfig */,
-				FE54DD63CA0BE0A960625128 /* Pods-OuthouseTests.debug.xcconfig */,
-				08254B4F212ED9BBFCB4A277 /* Pods-OuthouseTests.release.xcconfig */,
-				B92E08EDC519527F601C5576 /* Pods-OuthouseUITests.debug.xcconfig */,
-				922503E2F1644CF4B61D0519 /* Pods-OuthouseUITests.release.xcconfig */,
+				76DA97DE2CD2D42F17CA90CA /* Pods-Outhouse.debug.xcconfig */,
+				68F787D2BBC25A9CB9A90C59 /* Pods-Outhouse.release.xcconfig */,
+				D83AFBBB97506E95E4F500D6 /* Pods-OuthouseTests.debug.xcconfig */,
+				DDE1D0C6AEDF006B42794367 /* Pods-OuthouseTests.release.xcconfig */,
+				FB569DC997D4B279089F1117 /* Pods-OuthouseUITests.debug.xcconfig */,
+				9134267F48D2696B493840B9 /* Pods-OuthouseUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -147,8 +137,8 @@
 				BD89C9111D696ADA00678160 /* OuthouseTests */,
 				BD89C91C1D696ADA00678160 /* OuthouseUITests */,
 				BD89C8FB1D696ADA00678160 /* Products */,
-				2A176954B200A04A4FBB5E9B /* Pods */,
-				009409344CF80A8DFA445A13 /* Frameworks */,
+				81ED4154676D61A6DD1E4D9A /* Pods */,
+				FE20A55B6C45D2D3571A7A56 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -215,6 +205,16 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		FE20A55B6C45D2D3571A7A56 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				24B7FA98AD6122E55D1F98AE /* Pods_Outhouse.framework */,
+				513BD276FDC5AB8890F2220D /* Pods_OuthouseTests.framework */,
+				A312ECD408C88705C6C5E31D /* Pods_OuthouseUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -222,12 +222,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BD89C9221D696ADA00678160 /* Build configuration list for PBXNativeTarget "Outhouse" */;
 			buildPhases = (
-				4E218FC2622CAFCFC8D0B2D2 /* [CP] Check Pods Manifest.lock */,
+				9D979F75490FBC17DC2DC960 /* [CP] Check Pods Manifest.lock */,
 				BD89C8F61D696ADA00678160 /* Sources */,
 				BD89C8F71D696ADA00678160 /* Frameworks */,
 				BD89C8F81D696ADA00678160 /* Resources */,
-				131206D119A5FFDD6012BA7B /* [CP] Embed Pods Frameworks */,
-				92F145806CECB1006FDC5D1A /* [CP] Copy Pods Resources */,
+				B36F6D98E115D418B478F329 /* [CP] Embed Pods Frameworks */,
+				CF1372A21181385C40EEF3B1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -242,12 +242,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BD89C9251D696ADA00678160 /* Build configuration list for PBXNativeTarget "OuthouseTests" */;
 			buildPhases = (
-				34834EAB99BAFDFE5E954965 /* [CP] Check Pods Manifest.lock */,
+				80A31385CC68FDF84706CFD9 /* [CP] Check Pods Manifest.lock */,
 				BD89C90A1D696ADA00678160 /* Sources */,
 				BD89C90B1D696ADA00678160 /* Frameworks */,
 				BD89C90C1D696ADA00678160 /* Resources */,
-				D7F080AE1B9235EA2641E5E8 /* [CP] Embed Pods Frameworks */,
-				45737497727C5DA833BABC7E /* [CP] Copy Pods Resources */,
+				C57AADED62509C9B1134C246 /* [CP] Embed Pods Frameworks */,
+				B571655374FB5D3FD7B1092C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -263,11 +263,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BD89C9281D696ADA00678160 /* Build configuration list for PBXNativeTarget "OuthouseUITests" */;
 			buildPhases = (
-				E509EA53A8C2709714EFA8FF /* [CP] Check Pods Manifest.lock */,
+				B13CDF5BDC9B64820A04B3FE /* [CP] Check Pods Manifest.lock */,
 				BD89C9151D696ADA00678160 /* Sources */,
 				BD89C9161D696ADA00678160 /* Frameworks */,
 				BD89C9171D696ADA00678160 /* Resources */,
-				59300648EF735207F7634F02 /* [CP] Copy Pods Resources */,
+				72AD20B6138410640B22D5B5 /* [CP] Embed Pods Frameworks */,
+				CB067BF1F085DE9E43AF7355 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -286,19 +287,22 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Derek May";
 				TargetAttributes = {
 					BD89C8F91D696ADA00678160 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = AHSHHZP29H;
+						LastSwiftMigration = 0800;
 					};
 					BD89C90D1D696ADA00678160 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = BD89C8F91D696ADA00678160;
 					};
 					BD89C9181D696ADA00678160 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = BD89C8F91D696ADA00678160;
 					};
 				};
@@ -358,7 +362,67 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		131206D119A5FFDD6012BA7B /* [CP] Embed Pods Frameworks */ = {
+		72AD20B6138410640B22D5B5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OuthouseUITests/Pods-OuthouseUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		80A31385CC68FDF84706CFD9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9D979F75490FBC17DC2DC960 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B13CDF5BDC9B64820A04B3FE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B36F6D98E115D418B478F329 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -373,22 +437,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Outhouse/Pods-Outhouse-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		34834EAB99BAFDFE5E954965 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		45737497727C5DA833BABC7E /* [CP] Copy Pods Resources */ = {
+		B571655374FB5D3FD7B1092C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -403,52 +452,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OuthouseTests/Pods-OuthouseTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4E218FC2622CAFCFC8D0B2D2 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		59300648EF735207F7634F02 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OuthouseUITests/Pods-OuthouseUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		92F145806CECB1006FDC5D1A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Outhouse/Pods-Outhouse-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D7F080AE1B9235EA2641E5E8 /* [CP] Embed Pods Frameworks */ = {
+		C57AADED62509C9B1134C246 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -463,19 +467,34 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OuthouseTests/Pods-OuthouseTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E509EA53A8C2709714EFA8FF /* [CP] Check Pods Manifest.lock */ = {
+		CB067BF1F085DE9E43AF7355 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OuthouseUITests/Pods-OuthouseUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF1372A21181385C40EEF3B1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Outhouse/Pods-Outhouse-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -562,8 +581,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -585,7 +606,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -607,8 +628,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -624,86 +647,95 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		BD89C9231D696ADA00678160 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D78F3EA7C14C442DCDB45521 /* Pods-Outhouse.debug.xcconfig */;
+			baseConfigurationReference = 76DA97DE2CD2D42F17CA90CA /* Pods-Outhouse.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Outhouse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Amayzing.Outhouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		BD89C9241D696ADA00678160 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5702110529DE31FFE40DF4C6 /* Pods-Outhouse.release.xcconfig */;
+			baseConfigurationReference = 68F787D2BBC25A9CB9A90C59 /* Pods-Outhouse.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Outhouse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Amayzing.Outhouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		BD89C9261D696ADA00678160 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FE54DD63CA0BE0A960625128 /* Pods-OuthouseTests.debug.xcconfig */;
+			baseConfigurationReference = D83AFBBB97506E95E4F500D6 /* Pods-OuthouseTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = OuthouseTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Amayzing.OuthouseTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Outhouse.app/Outhouse";
 			};
 			name = Debug;
 		};
 		BD89C9271D696ADA00678160 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 08254B4F212ED9BBFCB4A277 /* Pods-OuthouseTests.release.xcconfig */;
+			baseConfigurationReference = DDE1D0C6AEDF006B42794367 /* Pods-OuthouseTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = OuthouseTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Amayzing.OuthouseTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Outhouse.app/Outhouse";
 			};
 			name = Release;
 		};
 		BD89C9291D696ADA00678160 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B92E08EDC519527F601C5576 /* Pods-OuthouseUITests.debug.xcconfig */;
+			baseConfigurationReference = FB569DC997D4B279089F1117 /* Pods-OuthouseUITests.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_ENTITLEMENTS[sdk=*]" = "";
 				INFOPLIST_FILE = OuthouseUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Amayzing.OuthouseUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Outhouse;
 			};
 			name = Debug;
 		};
 		BD89C92A1D696ADA00678160 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 922503E2F1644CF4B61D0519 /* Pods-OuthouseUITests.release.xcconfig */;
+			baseConfigurationReference = 9134267F48D2696B493840B9 /* Pods-OuthouseUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = OuthouseUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Amayzing.OuthouseUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Outhouse;
 			};
 			name = Release;

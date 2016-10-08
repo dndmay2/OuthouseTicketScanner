@@ -11,9 +11,9 @@ import Foundation
 
 class UpcomingEvent {
     
-    private(set) var eventId: String!
-    private(set) var eventName: String!
-    private(set) var eventDate: String!
+    fileprivate(set) var eventId: String!
+    fileprivate(set) var eventName: String!
+    fileprivate(set) var eventDate: String!
     
     init(id: String, name: String, date: String) {
         self.eventId = "\(id)"

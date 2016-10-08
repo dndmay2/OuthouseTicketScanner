@@ -1,7 +1,7 @@
 # Uncomment this line to define a global platform for your project
 # platform :ios, '9.0'
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.0'
+platform :ios, '10.0'
 
 target 'Outhouse' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
@@ -9,10 +9,10 @@ target 'Outhouse' do
   use_frameworks!
 
   # Pods for Outhouse
-  pod 'Alamofire', '~> 3.0'
+  pod 'Alamofire', '~> 4.0.0'
   # pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
-  pod 'SWXMLHash'
-  pod 'AEXML'
+  pod 'SWXMLHash', '~> 3.0'
+  pod 'AEXML', '~> 4.0'
   # pod 'StringExtensionHTML'
 
   target 'OuthouseTests' do
