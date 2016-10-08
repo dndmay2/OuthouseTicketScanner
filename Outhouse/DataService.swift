@@ -15,17 +15,17 @@ class DataService {
     
     static let dataService = DataService()
     
-    private(set) var NUM_TICKETS = "0"
-    private(set) var NUM_SCANNED_TICKETS = "0"
-    private(set) var TICKET_CODE = "Press Scan Ticket"
-    private(set) var TICKET_STATUS = "None"
-    private(set) var TICKET_STATUS_MESSAGE = ""
-    private(set) var UPCOMING_EVENTS_FOR_VENUE: [UpcomingEvent] = []
-    private(set) var UPCOMING_EVENTS_WITH_DATE: [String:String] = [:]
-    private(set) var soapRequest = AEXMLElement()
+    fileprivate(set) var NUM_TICKETS = "0"
+    fileprivate(set) var NUM_SCANNED_TICKETS = "0"
+    fileprivate(set) var TICKET_CODE = "Press Scan Ticket"
+    fileprivate(set) var TICKET_STATUS = "None"
+    fileprivate(set) var TICKET_STATUS_MESSAGE = ""
+    fileprivate(set) var UPCOMING_EVENTS_FOR_VENUE: [UpcomingEvent] = []
+    fileprivate(set) var UPCOMING_EVENTS_WITH_DATE: [String:String] = [:]
+    fileprivate(set) var soapRequest = AEXMLDocument() //Element(name: "Soap")
     //private(set) var TEST_VAR = AnyObject
     
-    private init() {}
+    fileprivate init() {}
     
     static func buildSoapHeader() -> AEXMLElement {
         self.dataService.soapRequest = AEXMLDocument()
@@ -35,17 +35,15 @@ class DataService {
         return body
     }
     
-    static func fixXMLPasswordString(xml: String) -> String {
+    static func fixXMLPasswordString(_ xml: String) -> String {
         // The AEXML code replaces ' (apostrophe) with &apos;
         // Since this is embedded in the password, it must be converted back
-        xml.stringByReplacingOccurrencesOfString("&apos;",
-                                                 withString: "'",
-                                                 options: NSStringCompareOptions.LiteralSearch,
-                                                 range: xml.startIndex..<xml.endIndex)
-        return xml
+        let newXML = xml.replacingOccurrences(of: "&apos;", with: "'", options: String.CompareOptions.literal)
+                                                 //range: xml.characters.indices)
+        return newXML
     }
     
-    static func buildXml(cmd: String, keyWordPairs: [String:String]) -> String {
+    static func buildXml(_ cmd: String, keyWordPairs: [String:String]) -> String {
         let body = self.buildSoapHeader()
         let getTicketCount = body.addChild(name: cmd,
                                            attributes: ["xmlns" : "http://www.outhousetickets.com/"])
@@ -55,24 +53,24 @@ class DataService {
         }
         getTicketCount.addChild(name: "AdminUserName", value: OUTHOUSE_ADMIN)
         getTicketCount.addChild(name: "AdminPassword", value: OUTHOUSE_PASSWORD)
-        let xmlString = fixXMLPasswordString(self.dataService.soapRequest.xmlString)
+        let xmlString = fixXMLPasswordString(self.dataService.soapRequest.xml)
         return xmlString
     }
     
-    static func buildMutableRequest(xmlString: String, cmd: String) -> NSMutableURLRequest {
+    static func buildMutableRequest(_ xmlString: String, cmd: String) -> URLRequest {
         let soapLenth = String(xmlString.characters.count)
-        let theURL = NSURL(string: "http://www.outhousetickets.com/webservice/barcodescanner.asmx")
+        let theURL = URL(string: "http://www.outhousetickets.com/webservice/barcodescanner.asmx")
         
-        let mutableR = NSMutableURLRequest(URL: theURL!)
+        var mutableR = URLRequest(url: theURL!)
         mutableR.addValue("text/xml; charset=utf-8", forHTTPHeaderField: "Content-Type")
         mutableR.addValue(soapLenth, forHTTPHeaderField: "Content-Length")
         mutableR.addValue("http://www.outhousetickets.com/" + cmd, forHTTPHeaderField: "SOAPAction")
-        mutableR.HTTPMethod = "POST"
-        mutableR.HTTPBody = xmlString.dataUsingEncoding(NSUTF8StringEncoding)
+        mutableR.httpMethod = "POST"
+        mutableR.httpBody = xmlString.data(using: String.Encoding.utf8)
         return mutableR
     }
     
-    static func postSoapCommand(command: String, id: String?, completion : (XMLIndexer?, NSError?)->()) {
+    static func postSoapCommand(_ command: String, id: String?, completion : @escaping (XMLIndexer?, NSError?)->()) {
         print("postSoapCommand", command, id, self.dataService.TICKET_CODE)
         var arglist = [String:String]()
         switch command{
@@ -96,64 +94,18 @@ class DataService {
         Alamofire.request(mutableR)
             .validate()
             .responseString { response in
-                switch response.result {
-                case .Success:
+                if(response.result.isSuccess) {
                     let xmlString = response.result.value
                     let xml = SWXMLHash.parse(xmlString!)
                     completion(xml, nil)
-                case .Failure(let error):
-                    completion(nil, error)
+                }
+                else {
+                    completion(nil, response.result.error as NSError?)
                 }
         }
     }
     
-//    static func postAndReturn(cmd: String) -> (result: String?, errMsg: String?) {
-//        var result:String?
-//        var errMsg:String?
-//        DataService.postSoapCommand(cmd){ responseObject, error in
-//            // use responseObject and error here
-//            print("A")
-//            if (responseObject != nil) {
-//                switch responseObject!["soap:Envelope"]["soap:Body"][cmd + "Response"][cmd + "Result"] {
-//                case .Element(let elem):
-//                    result = elem.text!
-//                    print(" ", cmd, result)
-//                case .XMLError(let error):
-//                    print("result error1", error)
-//                    errMsg = "XML Parsing error"
-//                default:
-//                    print("default1")
-//                }
-//            }
-//            else {
-//                //print("derek", error!.localizedDescription)
-//                if (error!.code == -1009) {
-//                    errMsg = "No Internet Connection!"
-//                }
-//                else {
-//                    errMsg = error!.localizedDescription
-//                }
-//            }
-//        }
-//        return(result, errMsg)
-//        
-//    }
-//
-//    static func getTicketCountForEvent2() {
-//        let cmd = "GetTicketCountForEvent"
-//        let (result, errMsg) = postAndReturn(cmd)
-//        print("VERSION2", cmd, result, errMsg)
-//        if (result != nil) {
-//            self.dataService.NUM_TICKETS = result!
-//            // Post a notification to let TicketDetailsViewController know we have some data.
-//            NSNotificationCenter.defaultCenter().postNotificationName("ShowTicketCountLabels", object: nil)
-//        } else if errMsg != nil {
-//            print(cmd, errMsg)
-//            self.dataService.TICKET_STATUS_MESSAGE = errMsg!
-//        }
-//    }
-    
-    static func getTicketCountForEvent(eventID: String) {
+    static func getTicketCountForEvent(_ eventID: String) {
         let cmd = "GetTicketCountForEvent"
         print("in", cmd, "eventId", eventID)
         DataService.postSoapCommand(cmd, id: eventID){ responseObject, error in
@@ -165,7 +117,7 @@ class DataService {
                     self.dataService.NUM_TICKETS = count
                     print(" ", cmd, count)
                     // Post a notification to let TicketDetailsViewController know we have some data.
-                    NSNotificationCenter.defaultCenter().postNotificationName("ShowTicketCountLabels", object: nil)
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ShowTicketCountLabels"), object: nil)
                 case .XMLError(let error):
                     print("result error1", error)
                 default:
@@ -179,7 +131,7 @@ class DataService {
         }
     }
     
-    static func getScannedTicketCountForEvent(eventID: String) {
+    static func getScannedTicketCountForEvent(_ eventID: String) {
         let cmd = "GetScannedTicketCountForEvent"
         print("in", cmd, "event", eventID)
         DataService.postSoapCommand(cmd, id: eventID){ responseObject, error in
@@ -191,13 +143,13 @@ class DataService {
             } else {
                 //print("derek2", error!.localizedDescription )
                 self.dataService.TICKET_STATUS_MESSAGE = "No Internet Connection!"
-                NSNotificationCenter.defaultCenter().postNotificationName("ShowTicketStatusLabels", object: nil)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ShowTicketStatusLabels"), object: nil)
             }
-            NSNotificationCenter.defaultCenter().postNotificationName("ShowTicketCountLabels", object: nil)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ShowTicketCountLabels"), object: nil)
         }
     }
     
-    static func processTicketCode(eventID: String, codeNumber: String) {
+    static func processTicketCode(_ eventID: String, codeNumber: String) {
         let cmd = "ProcessTicketCode"
         print("In", cmd, "codeNumber:", codeNumber)
         self.dataService.TICKET_CODE = codeNumber
@@ -228,8 +180,8 @@ class DataService {
                 default:
                     print("default")
                 }
-                NSNotificationCenter.defaultCenter().postNotificationName("ShowTicketStatusLabels", object: nil)
-                NSNotificationCenter.defaultCenter().postNotificationName("ShowResultImage", object: nil)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ShowTicketStatusLabels"), object: nil)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ShowResultImage"), object: nil)
             } else {
                 //print("derek3",  error!.localizedDescription, error!.code)
                 self.dataService.NUM_SCANNED_TICKETS = String(Int(self.dataService.NUM_SCANNED_TICKETS)!+1)
@@ -243,7 +195,7 @@ class DataService {
         }
     }
     
-    static func getUpcomingEventsForVenue(venue: String) {
+    static func getUpcomingEventsForVenue(_ venue: String) {
         let cmd = "GetUpcommingEvents_Custom"
         print("in", cmd)
         DataService.postSoapCommand(cmd, id: venue){ responseObject, error in
@@ -260,7 +212,7 @@ class DataService {
                 events.append(event)
             }
             self.dataService.UPCOMING_EVENTS_FOR_VENUE = events
-            NSNotificationCenter.defaultCenter().postNotificationName("ShowUpcomingEvents", object: nil)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ShowUpcomingEvents"), object: nil)
         }
     }
 
@@ -270,10 +222,10 @@ class DataService {
         DataService.postSoapCommand(cmd, id: nil){ responseObject, error in
             // use responseObject and error here
             for elem in responseObject!["soap:Envelope"]["soap:Body"][cmd + "Response"][cmd + "Result"]["diffgr:diffgram"]["NewDataSet"]["Table1"] {
-                let arr = elem["EventName"].element!.text!.componentsSeparatedByString("-")
+                let arr = elem["EventName"].element!.text!.components(separatedBy: "-")
                 self.dataService.UPCOMING_EVENTS_WITH_DATE[elem["EventID"].element!.text!] = arr.last!
             }
-            NSNotificationCenter.defaultCenter().postNotificationName("GetEventsForVenue", object: nil)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "GetEventsForVenue"), object: nil)
         }
     }
 

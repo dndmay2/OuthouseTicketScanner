@@ -73,14 +73,16 @@ class BarcodeReaderViewController: UIViewController, AVCaptureMetadataOutputObje
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if (session?.isRunning == false) {
-            session.startRunning()
-        }
         if Platform.isSimulator {
             print("Running on Simulator")
             print(1, TEST_TICKET_CODE)
             barcodeDetected(TEST_TICKET_CODE)
-            session.stopRunning()
+            //session.stopRunning()
+        } else {
+            if (session?.isRunning == false) {
+                session.startRunning()
+            }
+
         }
     }
     
