@@ -18,7 +18,6 @@
 		BD89C9131D696ADA00678160 /* OuthouseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD89C9121D696ADA00678160 /* OuthouseTests.swift */; };
 		BD89C91E1D696ADA00678160 /* OuthouseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD89C91D1D696ADA00678160 /* OuthouseUITests.swift */; };
 		BDCC22CF1D88EAC800909103 /* stop-sign-png-27210.png in Resources */ = {isa = PBXBuildFile; fileRef = BDCC22CC1D88EAC800909103 /* stop-sign-png-27210.png */; };
-		BDCC22D01D88EAC800909103 /* stop-sign-png-27224.png in Resources */ = {isa = PBXBuildFile; fileRef = BDCC22CD1D88EAC800909103 /* stop-sign-png-27224.png */; };
 		BDCC22D11D88EAC800909103 /* check-tick-icon-14147.png in Resources */ = {isa = PBXBuildFile; fileRef = BDCC22CE1D88EAC800909103 /* check-tick-icon-14147.png */; };
 		BDCC22D31D8DF37400909103 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BDCC22D21D8DF37400909103 /* Settings.bundle */; };
 		BDCC22D71D8E151800909103 /* UpcomingEventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCC22D61D8E151800909103 /* UpcomingEventsTableViewController.swift */; };
@@ -57,7 +56,7 @@
 		76DA97DE2CD2D42F17CA90CA /* Pods-Outhouse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Outhouse.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Outhouse/Pods-Outhouse.debug.xcconfig"; sourceTree = "<group>"; };
 		9134267F48D2696B493840B9 /* Pods-OuthouseUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OuthouseUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OuthouseUITests/Pods-OuthouseUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A312ECD408C88705C6C5E31D /* Pods_OuthouseUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OuthouseUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD89C8FA1D696ADA00678160 /* Outhouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Outhouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD89C8FA1D696ADA00678160 /* OuthouseTickets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OuthouseTickets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD89C8FD1D696ADA00678160 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD89C8FF1D696ADA00678160 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BD89C9021D696ADA00678160 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -71,7 +70,6 @@
 		BD89C91D1D696ADA00678160 /* OuthouseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OuthouseUITests.swift; sourceTree = "<group>"; };
 		BD89C91F1D696ADA00678160 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDCC22CC1D88EAC800909103 /* stop-sign-png-27210.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "stop-sign-png-27210.png"; path = "Images/stop-sign-png-27210.png"; sourceTree = "<group>"; };
-		BDCC22CD1D88EAC800909103 /* stop-sign-png-27224.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "stop-sign-png-27224.png"; path = "Images/stop-sign-png-27224.png"; sourceTree = "<group>"; };
 		BDCC22CE1D88EAC800909103 /* check-tick-icon-14147.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "check-tick-icon-14147.png"; path = "Images/check-tick-icon-14147.png"; sourceTree = "<group>"; };
 		BDCC22D21D8DF37400909103 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		BDCC22D61D8E151800909103 /* UpcomingEventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingEventsTableViewController.swift; sourceTree = "<group>"; };
@@ -145,7 +143,7 @@
 		BD89C8FB1D696ADA00678160 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BD89C8FA1D696ADA00678160 /* Outhouse.app */,
+				BD89C8FA1D696ADA00678160 /* OuthouseTickets.app */,
 				BD89C90E1D696ADA00678160 /* OuthouseTests.xctest */,
 				BD89C9191D696ADA00678160 /* OuthouseUITests.xctest */,
 			);
@@ -196,7 +194,6 @@
 			isa = PBXGroup;
 			children = (
 				BDCC22CC1D88EAC800909103 /* stop-sign-png-27210.png */,
-				BDCC22CD1D88EAC800909103 /* stop-sign-png-27224.png */,
 				BDCC22CE1D88EAC800909103 /* check-tick-icon-14147.png */,
 				BDFE84471D6BDD5100E91234 /* outhouseFull.jpg */,
 				BDFE84411D6BD04400E91234 /* barcodeButton.png */,
@@ -235,7 +232,7 @@
 			);
 			name = Outhouse;
 			productName = Outhouse;
-			productReference = BD89C8FA1D696ADA00678160 /* Outhouse.app */;
+			productReference = BD89C8FA1D696ADA00678160 /* OuthouseTickets.app */;
 			productType = "com.apple.product-type.application";
 		};
 		BD89C90D1D696ADA00678160 /* OuthouseTests */ = {
@@ -340,7 +337,6 @@
 				BDFE84431D6BD04400E91234 /* barcodeButton.png in Resources */,
 				BD89C9051D696ADA00678160 /* Assets.xcassets in Resources */,
 				BD89C9031D696ADA00678160 /* Main.storyboard in Resources */,
-				BDCC22D01D88EAC800909103 /* stop-sign-png-27224.png in Resources */,
 				BDFE84481D6BDD5100E91234 /* outhouseFull.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -606,7 +602,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -647,7 +643,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -661,11 +657,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				INFOPLIST_FILE = Outhouse/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Amayzing.Outhouse;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.AmayzingApps.OuthouseTickets;
+				PRODUCT_NAME = OuthouseTickets;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -676,11 +675,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Outhouse/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Amayzing.Outhouse;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.AmayzingApps.OuthouseTickets;
+				PRODUCT_NAME = OuthouseTickets;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

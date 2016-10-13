@@ -27,6 +27,7 @@ class UpcomingEventsTableViewController: UITableViewController {
         
         processAppDefaults()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(updateAppDefaults(_:)), name: NSNotification.Name(rawValue: "NSUserDefaultsDidChangeNotification"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateEventTable(_:)), name: NSNotification.Name(rawValue: "ShowUpcomingEvents"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(getEventsForVenue(_:)), name: NSNotification.Name(rawValue: "GetEventsForVenue"), object: nil)
         getEventDates()
@@ -100,6 +101,12 @@ class UpcomingEventsTableViewController: UITableViewController {
         eventTable.reloadData()
     }
     
+    func updateAppDefaults(_ notification: Notification) {
+        let id = UserDefaults.standard.string(forKey: "venueID")
+        print("In updateAppDefaults", id)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "GetEventsForVenue"), object: nil)
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         print("You selected cell #\((indexPath as NSIndexPath).row)!")
@@ -109,11 +116,17 @@ class UpcomingEventsTableViewController: UITableViewController {
         print("\(indexPathVal)")
         let currentCell = eventTable.cellForRow(at: indexPathVal) as UITableViewCell!;
         print("\(currentCell?.textLabel!.text)")
-        //Storing the data to a string from the selected cell
-        sendSelectedEventID = eventDict[currentCell!.textLabel!.text!]! as NSString
-        print("what i'm going to send:", sendSelectedEventID)
-        //Now here I am performing the segue action after cell selection to the other view controller by using the segue Identifier Name
-        self.performSegue(withIdentifier: "gotoTicketDetailsVC", sender: self)
+        if currentCell?.textLabel!.text == "Web Query Error" {
+            currentCell?.textLabel!.text = "Trying again ..."
+            getEventDates()
+        }
+        else {
+            //Storing the data to a string from the selected cell
+            sendSelectedEventID = eventDict[currentCell!.textLabel!.text!]! as NSString
+            print("what i'm going to send:", sendSelectedEventID)
+            //Now here I am performing the segue action after cell selection to the other view controller by using the segue Identifier Name
+            self.performSegue(withIdentifier: "gotoTicketDetailsVC", sender: self)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

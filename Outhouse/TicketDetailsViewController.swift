@@ -71,15 +71,19 @@ class TicketDetailsViewController: UIViewController {
     
     func showResult(_ notification: Notification){
         print("in showResult in TicketDetailsViewController")
-        
+        let soundEffects = UserDefaults.standard.bool(forKey: "soundEffects")
         if DataService.dataService.TICKET_STATUS == "true" {
             print("result true\n")
-            AudioServicesPlaySystemSound(1333)
+            if soundEffects {
+                AudioServicesPlaySystemSound(1333)
+            }
             StopSignImage.isHidden = true
             CheckMarkImage.isHidden = false
         } else if DataService.dataService.TICKET_STATUS == "false" {
             print("result false\n")
-            AudioServicesPlaySystemSound(1029)
+            if soundEffects {
+                AudioServicesPlaySystemSound(1029)
+            }
             StopSignImage.isHidden = false
             CheckMarkImage.isHidden = true
         } else {

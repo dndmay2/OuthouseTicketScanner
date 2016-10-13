@@ -122,7 +122,7 @@ class BarcodeReaderViewController: UIViewController, AVCaptureMetadataOutputObje
             }
             
             // Vibrate the device to give the user some feedback.
-            //AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             
         }
     }
@@ -140,9 +140,9 @@ class BarcodeReaderViewController: UIViewController, AVCaptureMetadataOutputObje
         let trimmedCodeString = "\(trimmedCode)"
         DataService.processTicketCode(passedInEvent, codeNumber: trimmedCodeString)
 
-//        runAfterDelay(0.5) {
-//            DataService.getScannedTicketCountForEvent()
-//        }
+        runAfterDelay(0.5) {
+            DataService.getScannedTicketCountForEvent(self.passedInEvent)
+        }
         _ = self.navigationController?.popViewController(animated: true)
     }
 }

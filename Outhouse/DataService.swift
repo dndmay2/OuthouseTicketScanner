@@ -203,13 +203,25 @@ class DataService {
             var event: UpcomingEvent
             var date: String!
             // use responseObject and error here
-            for elem in responseObject!["soap:Envelope"]["soap:Body"][cmd + "Response"][cmd + "Result"]["diffgr:diffgram"]["NewDataSet"]["Table1"] {
-                date = self.dataService.UPCOMING_EVENTS_WITH_DATE[elem["EventID"].element!.text!]
-                if date == nil {
-                    date = "1/1/2001"
+            if (responseObject != nil) {
+                for elem in responseObject!["soap:Envelope"]["soap:Body"][cmd + "Response"][cmd + "Result"]["diffgr:diffgram"]["NewDataSet"]["Table1"] {
+                    date = self.dataService.UPCOMING_EVENTS_WITH_DATE[elem["EventID"].element!.text!]
+                    if date == nil {
+                        date = "1/1/2001"
+                    }
+                    event = UpcomingEvent(id: elem["EventID"].element!.text!, name: elem["EventName"].element!.text!, date: date)
+                    events.append(event)
                 }
-                event = UpcomingEvent(id: elem["EventID"].element!.text!, name: elem["EventName"].element!.text!, date: date)
-                events.append(event)
+                if events.count==0 {
+                    event = UpcomingEvent(id: "0", name: "No events found for venue #"+venue, date: "Update Venue ID under iPhone Settings->Outhouse")
+                    events.append(event)
+                }
+            }
+            else {
+                if events.count==0 {
+                    event = UpcomingEvent(id: "0", name: "Web Query Error", date: "Check Internet Connection")
+                    events.append(event)
+                }
             }
             self.dataService.UPCOMING_EVENTS_FOR_VENUE = events
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ShowUpcomingEvents"), object: nil)
@@ -221,9 +233,16 @@ class DataService {
         print("in", cmd)
         DataService.postSoapCommand(cmd, id: nil){ responseObject, error in
             // use responseObject and error here
-            for elem in responseObject!["soap:Envelope"]["soap:Body"][cmd + "Response"][cmd + "Result"]["diffgr:diffgram"]["NewDataSet"]["Table1"] {
-                let arr = elem["EventName"].element!.text!.components(separatedBy: "-")
-                self.dataService.UPCOMING_EVENTS_WITH_DATE[elem["EventID"].element!.text!] = arr.last!
+            if (responseObject != nil) {
+                for elem in responseObject!["soap:Envelope"]["soap:Body"][cmd + "Response"][cmd + "Result"]["diffgr:diffgram"]["NewDataSet"]["Table1"] {
+                    let arr = elem["EventName"].element!.text!.components(separatedBy: "-")
+                    self.dataService.UPCOMING_EVENTS_WITH_DATE[elem["EventID"].element!.text!] = arr.last!
+                }
+            }
+            else {
+                var event: UpcomingEvent
+                event = UpcomingEvent(id: "0", name: "Web Query Error", date: "Check Internet Connection")
+                self.dataService.UPCOMING_EVENTS_FOR_VENUE = [event]
             }
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "GetEventsForVenue"), object: nil)
         }
