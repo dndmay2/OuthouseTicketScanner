@@ -53,6 +53,7 @@ class UpcomingEventsTableViewController: UITableViewController {
     func processAppDefaults() {
         var appDefaults = Dictionary<String, AnyObject>()
         appDefaults["venueID"] = "0" as AnyObject?
+        appDefaults["soundEffects"] = true as AnyObject?
         UserDefaults.standard.register(defaults: appDefaults)
     }
     

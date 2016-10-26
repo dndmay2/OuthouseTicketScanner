@@ -78,9 +78,23 @@ class BarcodeReaderViewController: UIViewController, AVCaptureMetadataOutputObje
         // Begin the capture session.
         
         session.startRunning()
+        if LED_BACK_LIGHT_SETTING == true {
+            if !backLightSwitch.isOn {
+                backLightSwitch.setOn(true, animated:false)
+            }
+            toggleLed(value: LED_BACK_LIGHT_SETTING)
+        }
     }
     
     func stateChanged(switchState: UISwitch) {
+        if switchState.isOn {
+            toggleLed(value: true)
+        } else {
+            toggleLed(value: false)
+        }
+    }
+    
+    func toggleLed(value: Bool) {
         let avDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
         // check if the device has torch
         if  (avDevice?.hasTorch)! {
@@ -92,22 +106,27 @@ class BarcodeReaderViewController: UIViewController, AVCaptureMetadataOutputObje
             }
             // check if your torchMode is on or off. If on turns it off otherwise turns it on
             // avDevice?.torchMode = (avDevice?.isTorchActive)! ? AVCaptureTorchMode.off : AVCaptureTorchMode.on
-            if switchState.isOn {
-                print("The Switch is On")
-                avDevice?.torchMode = AVCaptureTorchMode.on
-                // sets the torch intensity to 100%
-                do {
-                    try avDevice?.setTorchModeOnWithLevel(0.01)
-                } catch {
-                    return
+            if value {
+                // print("The Switch is On")
+                LED_BACK_LIGHT_SETTING = true
+                if !(avDevice?.isTorchActive)! {
+                    avDevice?.torchMode = AVCaptureTorchMode.on
+                    // sets the torch intensity to 100%
+                    do {
+                        try avDevice?.setTorchModeOnWithLevel(0.01)
+                    } catch {
+                        return
+                    }
                 }
             } else {
-                print("The Switch is Off")
+                // print("The Switch is Off")
+                LED_BACK_LIGHT_SETTING = false
                 avDevice?.torchMode = AVCaptureTorchMode.off
             }
             // unlock your device
             avDevice?.unlockForConfiguration()
         }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

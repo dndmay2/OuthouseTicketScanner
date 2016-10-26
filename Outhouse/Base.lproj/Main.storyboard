@@ -44,20 +44,12 @@
                                     <segue destination="DBn-zX-a5A" kind="show" identifier="gotoBarcodeReaderVC" id="xo2-Ll-hYb"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Tickets Scanned:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="140" translatesAutoresizingMaskIntoConstraints="NO" id="Ye2-Oo-Oz5">
-                                <frame key="frameInset" minX="64" minY="436" width="133" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tickets Scanned:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="140" translatesAutoresizingMaskIntoConstraints="NO" id="Ye2-Oo-Oz5">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a67-z6-8xC">
-                                <frame key="frameInset" minX="253" minY="464" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lau-Nn-xpO">
-                                <frame key="frameInset" minX="253" minY="436" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a67-z6-8xC">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -68,6 +60,11 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.65269396551724135" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Tickets:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="140" translatesAutoresizingMaskIntoConstraints="NO" id="5mG-Yi-NkI">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="CQl-TC-8P3">
@@ -83,8 +80,7 @@
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Total Tickets:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="140" translatesAutoresizingMaskIntoConstraints="NO" id="5mG-Yi-NkI">
-                                <frame key="frameInset" minX="64" minY="464" width="133" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lau-Nn-xpO">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -92,40 +88,42 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Lau-Nn-xpO" firstAttribute="trailing" secondItem="n38-Nh-BEH" secondAttribute="trailing" id="0ew-6F-4Nw"/>
                             <constraint firstItem="Ye2-Oo-Oz5" firstAttribute="top" secondItem="vNI-J2-KPR" secondAttribute="bottom" constant="6" id="2yc-AC-wPW"/>
                             <constraint firstItem="vNI-J2-KPR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="5CF-5J-Phl"/>
+                            <constraint firstItem="a67-z6-8xC" firstAttribute="trailing" secondItem="Lau-Nn-xpO" secondAttribute="trailing" id="5Ci-XP-jA2"/>
+                            <constraint firstItem="a67-z6-8xC" firstAttribute="baseline" secondItem="Ye2-Oo-Oz5" secondAttribute="baseline" id="5E5-a7-ePE"/>
                             <constraint firstItem="Ye2-Oo-Oz5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="48" id="6cv-hc-pMs"/>
-                            <constraint firstItem="Lau-Nn-xpO" firstAttribute="leading" secondItem="a67-z6-8xC" secondAttribute="leading" id="7bY-Y3-Djb"/>
+                            <constraint firstItem="a67-z6-8xC" firstAttribute="trailing" secondItem="dBV-fh-3bM" secondAttribute="trailing" id="9au-rc-UA4"/>
                             <constraint firstItem="vNI-J2-KPR" firstAttribute="centerX" secondItem="hmx-ob-cvD" secondAttribute="centerX" id="9qv-bI-tjR"/>
+                            <constraint firstItem="5mG-Yi-NkI" firstAttribute="top" secondItem="Ye2-Oo-Oz5" secondAttribute="bottom" constant="7" id="Atm-iw-qCb"/>
+                            <constraint firstItem="5mG-Yi-NkI" firstAttribute="baseline" secondItem="Lau-Nn-xpO" secondAttribute="baseline" id="CNh-B5-KK4"/>
                             <constraint firstItem="vNI-J2-KPR" firstAttribute="top" secondItem="CQl-TC-8P3" secondAttribute="bottom" constant="8" id="Ghi-1w-Pjc"/>
                             <constraint firstItem="dBV-fh-3bM" firstAttribute="top" secondItem="Rqa-41-yw1" secondAttribute="bottom" constant="8" symbolic="YES" id="GzH-nC-ptK"/>
                             <constraint firstItem="n38-Nh-BEH" firstAttribute="leading" secondItem="dBV-fh-3bM" secondAttribute="leading" id="H7X-E1-iYw"/>
+                            <constraint firstItem="5mG-Yi-NkI" firstAttribute="trailing" secondItem="Ye2-Oo-Oz5" secondAttribute="trailing" id="HE2-Kv-io2"/>
                             <constraint firstItem="Rqa-41-yw1" firstAttribute="leading" secondItem="hmx-ob-cvD" secondAttribute="leading" id="Hat-5x-NE0"/>
                             <constraint firstItem="n38-Nh-BEH" firstAttribute="centerX" secondItem="hmx-ob-cvD" secondAttribute="centerX" id="HsH-HA-C6C"/>
                             <constraint firstItem="n38-Nh-BEH" firstAttribute="top" secondItem="dBV-fh-3bM" secondAttribute="top" id="Kae-S0-sLS"/>
                             <constraint firstItem="vNI-J2-KPR" firstAttribute="top" secondItem="CQl-TC-8P3" secondAttribute="bottom" constant="8" symbolic="YES" id="KlM-x9-hxa"/>
-                            <constraint firstItem="5mG-Yi-NkI" firstAttribute="baseline" secondItem="a67-z6-8xC" secondAttribute="baseline" id="Kwq-Zt-emc"/>
+                            <constraint firstItem="a67-z6-8xC" firstAttribute="top" secondItem="vNI-J2-KPR" secondAttribute="bottom" constant="5" id="R9a-kd-YHH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Rqa-41-yw1" secondAttribute="trailing" constant="4" id="W3L-VD-k7H"/>
+                            <constraint firstItem="a67-z6-8xC" firstAttribute="leading" secondItem="Ye2-Oo-Oz5" secondAttribute="trailing" constant="56" id="WVc-lV-8pc"/>
                             <constraint firstItem="hmx-ob-cvD" firstAttribute="top" secondItem="Rqa-41-yw1" secondAttribute="bottom" constant="90" id="Z6X-GQ-jAA"/>
-                            <constraint firstItem="sWQ-Dh-viR" firstAttribute="top" secondItem="5mG-Yi-NkI" secondAttribute="bottom" constant="24" id="ahu-sv-gh0"/>
-                            <constraint firstItem="Ye2-Oo-Oz5" firstAttribute="baseline" secondItem="Lau-Nn-xpO" secondAttribute="baseline" id="cvZ-0l-2DI"/>
+                            <constraint firstItem="a67-z6-8xC" firstAttribute="leading" secondItem="Lau-Nn-xpO" secondAttribute="leading" id="a9n-3v-6YW"/>
                             <constraint firstItem="dBV-fh-3bM" firstAttribute="trailing" secondItem="n38-Nh-BEH" secondAttribute="trailing" id="dUM-DB-4rl"/>
                             <constraint firstItem="Rqa-41-yw1" firstAttribute="trailing" secondItem="hmx-ob-cvD" secondAttribute="trailing" id="fkq-LM-ASo"/>
                             <constraint firstItem="hmx-ob-cvD" firstAttribute="centerY" secondItem="dBV-fh-3bM" secondAttribute="centerY" id="gOL-KG-Isc"/>
                             <constraint firstItem="n38-Nh-BEH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="56" id="hbr-dk-3SX"/>
-                            <constraint firstItem="Lau-Nn-xpO" firstAttribute="trailing" secondItem="a67-z6-8xC" secondAttribute="trailing" id="iP2-Pu-hfM"/>
-                            <constraint firstItem="Ye2-Oo-Oz5" firstAttribute="leading" secondItem="5mG-Yi-NkI" secondAttribute="leading" id="jD9-rU-VaS"/>
                             <constraint firstItem="CQl-TC-8P3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="jzY-cx-Xws"/>
+                            <constraint firstItem="sWQ-Dh-viR" firstAttribute="top" secondItem="5mG-Yi-NkI" secondAttribute="bottom" constant="24" id="kgI-uL-SGs"/>
                             <constraint firstItem="sWQ-Dh-viR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mSB-vo-0pq"/>
+                            <constraint firstItem="Ye2-Oo-Oz5" firstAttribute="trailing" secondItem="CQl-TC-8P3" secondAttribute="trailing" id="pp2-kW-Yss"/>
                             <constraint firstItem="Rqa-41-yw1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-4" id="rU9-NS-Cue"/>
-                            <constraint firstItem="5mG-Yi-NkI" firstAttribute="top" secondItem="Ye2-Oo-Oz5" secondAttribute="bottom" constant="7" id="sP7-ky-Y8j"/>
-                            <constraint firstItem="Ye2-Oo-Oz5" firstAttribute="trailing" secondItem="5mG-Yi-NkI" secondAttribute="trailing" id="tNV-oP-6Dn"/>
+                            <constraint firstItem="5mG-Yi-NkI" firstAttribute="leading" secondItem="Ye2-Oo-Oz5" secondAttribute="leading" id="sih-bm-vHA"/>
                             <constraint firstItem="n38-Nh-BEH" firstAttribute="bottom" secondItem="dBV-fh-3bM" secondAttribute="bottom" id="txg-ax-bMr"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="sWQ-Dh-viR" secondAttribute="bottom" constant="8" symbolic="YES" id="w9U-x7-cSA"/>
                             <constraint firstAttribute="trailing" secondItem="CQl-TC-8P3" secondAttribute="trailing" constant="178" id="xsA-l0-jHH"/>
                             <constraint firstItem="Rqa-41-yw1" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="14" id="zKc-4I-CP0"/>
-                            <constraint firstItem="Lau-Nn-xpO" firstAttribute="leading" secondItem="Ye2-Oo-Oz5" secondAttribute="trailing" constant="56" id="zqP-3k-ku4"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -133,8 +131,8 @@
                                 <exclude reference="n38-Nh-BEH"/>
                                 <exclude reference="Ye2-Oo-Oz5"/>
                                 <exclude reference="a67-z6-8xC"/>
-                                <exclude reference="Lau-Nn-xpO"/>
                                 <exclude reference="5mG-Yi-NkI"/>
+                                <exclude reference="Lau-Nn-xpO"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -143,8 +141,8 @@
                                 <include reference="n38-Nh-BEH"/>
                                 <include reference="Ye2-Oo-Oz5"/>
                                 <include reference="a67-z6-8xC"/>
-                                <include reference="Lau-Nn-xpO"/>
                                 <include reference="5mG-Yi-NkI"/>
+                                <include reference="Lau-Nn-xpO"/>
                             </mask>
                         </variation>
                     </view>
