@@ -14,11 +14,19 @@ class BarcodeReaderViewController: UIViewController, AVCaptureMetadataOutputObje
     var session: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
 
-    var passedInEvent:String!
+    var passedInEventId:String!
+
+    @IBOutlet weak var backLightSwitch: UISwitch!
+    
+    @IBOutlet weak var overlayButtonView: UIView!
+    var layerWithLightButton: CALayer {
+        return overlayButtonView.layer
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("PASSED IN to barcodeReader", passedInEvent)
+        print("PASSED IN to barcodeReader", passedInEventId)
+        backLightSwitch.addTarget(self, action: #selector(stateChanged(switchState:)), for: UIControlEvents.valueChanged)
 
         // Create a session object.
         session = AVCaptureSession()
@@ -60,14 +68,46 @@ class BarcodeReaderViewController: UIViewController, AVCaptureMetadataOutputObje
         }
         
         // Add previewLayer and have it show the video data.
-        previewLayer = AVCaptureVideoPreviewLayer(session: session);
-        previewLayer.frame = view.layer.bounds;
-        previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
-        view.layer.addSublayer(previewLayer);
-        
+        previewLayer = AVCaptureVideoPreviewLayer(session: session)
+        previewLayer.frame = view.layer.bounds
+        previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
+        view.layer.addSublayer(previewLayer)
+        layerWithLightButton.cornerRadius = 8.0
+        view.layer.addSublayer(layerWithLightButton)
+    
         // Begin the capture session.
         
         session.startRunning()
+    }
+    
+    func stateChanged(switchState: UISwitch) {
+        let avDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+        // check if the device has torch
+        if  (avDevice?.hasTorch)! {
+            // lock your device for configuration
+            do {
+                try avDevice?.lockForConfiguration()
+            } catch {
+                return
+            }
+            // check if your torchMode is on or off. If on turns it off otherwise turns it on
+            // avDevice?.torchMode = (avDevice?.isTorchActive)! ? AVCaptureTorchMode.off : AVCaptureTorchMode.on
+            if switchState.isOn {
+                print("The Switch is On")
+                avDevice?.torchMode = AVCaptureTorchMode.on
+                // sets the torch intensity to 100%
+                do {
+                    try avDevice?.setTorchModeOnWithLevel(0.01)
+                } catch {
+                    return
+                }
+            } else {
+                print("The Switch is Off")
+                avDevice?.torchMode = AVCaptureTorchMode.off
+            }
+            // unlock your device
+            avDevice?.unlockForConfiguration()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -138,12 +178,14 @@ class BarcodeReaderViewController: UIViewController, AVCaptureMetadataOutputObje
         print(2, code)
 
         let trimmedCodeString = "\(trimmedCode)"
-        DataService.processTicketCode(passedInEvent, codeNumber: trimmedCodeString)
+        DataService.processTicketCode(passedInEventId, codeNumber: trimmedCodeString)
 
         runAfterDelay(0.5) {
-            DataService.getScannedTicketCountForEvent(self.passedInEvent)
+            DataService.getScannedTicketCountForEvent(self.passedInEventId)
         }
         _ = self.navigationController?.popViewController(animated: true)
     }
+    
+
 }
 

@@ -16,6 +16,8 @@ class UpcomingEventsTableViewController: UITableViewController {
     var eventDict: [String: String] = [:]
     // Creating A variable to save the text from the selected label and send it to the next view controller
     var sendSelectedEventID = NSString()
+    var sendSelectedEventName = NSString()
+    let defaults = UserDefaults.init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +40,7 @@ class UpcomingEventsTableViewController: UITableViewController {
     }
     
     func getEventsForVenue(_ notification: Notification) {
-        let id = UserDefaults.standard.string(forKey: "venueID")
+        let id = defaults.string(forKey: "venueID")
         if (id != nil) { // This is where it breaks
             print("id is", id!)
             DataService.getUpcomingEventsForVenue(id!)
@@ -52,7 +54,6 @@ class UpcomingEventsTableViewController: UITableViewController {
         var appDefaults = Dictionary<String, AnyObject>()
         appDefaults["venueID"] = "0" as AnyObject?
         UserDefaults.standard.register(defaults: appDefaults)
-        UserDefaults.standard.synchronize()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -70,7 +71,13 @@ class UpcomingEventsTableViewController: UITableViewController {
         //let cell = tableView.dequeueReusableCellWithIdentifier("EventCell") as UITableViewCell!
         let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "EventCell") as UITableViewCell
         
-        cell.textLabel?.text = eventArray[(indexPath as NSIndexPath).row].eventName
+        var theText = eventArray[(indexPath as NSIndexPath).row].eventName
+        cell.textLabel?.text = theText
+        let numChars = theText!.characters.count
+        let numLines = Int(floor(Float(numChars)/30.0))+1
+        cell.textLabel?.numberOfLines = numLines
+        print("numChars", numChars, "numLines", numLines)
+        cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
         cell.detailTextLabel?.text = eventArray[(indexPath as NSIndexPath).row].eventDate
         print(eventArray[(indexPath as NSIndexPath).row].eventDate)
         cell.backgroundColor = UIColor.black
@@ -78,11 +85,11 @@ class UpcomingEventsTableViewController: UITableViewController {
         cell.textLabel?.adjustsFontSizeToFitWidth = true
         cell.textLabel?.textAlignment = .center
         // cell.textLabel!.font = UIFont(name: "Noteworthy-Bold", size: (cell.textLabel!.font?.pointSize)!)
-        cell.textLabel!.font = UIFont(name: "Noteworthy-Bold", size: 30)
+        cell.textLabel!.font = UIFont(name: "Noteworthy-Bold", size: 28)
         cell.detailTextLabel?.textColor = UIColor.red
         cell.detailTextLabel?.adjustsFontSizeToFitWidth = true
         cell.detailTextLabel?.textAlignment = .center
-        cell.detailTextLabel!.font = UIFont.systemFont(ofSize: 18)
+        cell.detailTextLabel!.font = UIFont.systemFont(ofSize: 20)
         return cell
     }
 
@@ -90,6 +97,14 @@ class UpcomingEventsTableViewController: UITableViewController {
         return eventArray.count
     }
 
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
     func updateEventTable(_ notification: Notification){
         print("myupdate", DataService.dataService.UPCOMING_EVENTS_FOR_VENUE)
         eventArray = []
@@ -102,7 +117,7 @@ class UpcomingEventsTableViewController: UITableViewController {
     }
     
     func updateAppDefaults(_ notification: Notification) {
-        let id = UserDefaults.standard.string(forKey: "venueID")
+        let id = defaults.string(forKey: "venueID")
         print("In updateAppDefaults", id)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "GetEventsForVenue"), object: nil)
     }
@@ -123,6 +138,7 @@ class UpcomingEventsTableViewController: UITableViewController {
         else {
             //Storing the data to a string from the selected cell
             sendSelectedEventID = eventDict[currentCell!.textLabel!.text!]! as NSString
+            sendSelectedEventName = currentCell!.textLabel!.text! as NSString
             print("what i'm going to send:", sendSelectedEventID)
             //Now here I am performing the segue action after cell selection to the other view controller by using the segue Identifier Name
             self.performSegue(withIdentifier: "gotoTicketDetailsVC", sender: self)
@@ -135,7 +151,8 @@ class UpcomingEventsTableViewController: UITableViewController {
             //Creating an object of the second View controller
             let controller = segue.destination as! TicketDetailsViewController
             //Sending the data here
-            controller.passedInEvent = sendSelectedEventID as String
+            controller.passedInEventId = sendSelectedEventID as String
+            controller.passedInEventName = sendSelectedEventName as String
             
         }
         let backItem = UIBarButtonItem()

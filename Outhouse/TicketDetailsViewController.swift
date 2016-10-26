@@ -17,8 +17,11 @@ class TicketDetailsViewController: UIViewController {
     @IBOutlet weak var totalTicketsLabel: UILabel!
     @IBOutlet weak var StopSignImage: UIImageView!
     @IBOutlet weak var CheckMarkImage: UIImageView!
+    @IBOutlet weak var eventNameLabel: UILabel!
     
-    var passedInEvent:String!
+    var passedInEventId:String!
+    var passedInEventName:String!
+    let defaults = UserDefaults.init()
 
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -26,31 +29,50 @@ class TicketDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("PASSED IN", passedInEvent)
+        print("PASSED IN", passedInEventId)
         ticketCodeLabel.text = "Press Scan Ticket"
         scanMessageLabel.text = ""
         ticketsScannedLabel.text = "0"
         totalTicketsLabel.text = "0"
         StopSignImage.isHidden = true
         CheckMarkImage.isHidden = true
+        self.eventNameLabel.text = passedInEventName
         
         NotificationCenter.default.addObserver(self, selector: #selector(setTicketCountLabels(_:)), name: NSNotification.Name(rawValue: "ShowTicketCountLabels"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(setTicketStatusLabels(_:)), name: NSNotification.Name(rawValue: "ShowTicketStatusLabels"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showResult(_:)), name: NSNotification.Name(rawValue: "ShowResultImage"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(lookupTicketScanCount(_:)), name: NSNotification.Name(rawValue: "UpdateTicketScanCount"), object: nil)
 
-        DataService.getTicketCountForEvent(passedInEvent)
-        DataService.getScannedTicketCountForEvent(passedInEvent)
+        DataService.getTicketCountForEvent(passedInEventId)
+        DataService.getScannedTicketCountForEvent(passedInEventId)
+    }
+    
+    @IBAction func navBarInfoButton(_ sender: AnyObject) {
+        let venueId = defaults.string(forKey: "venueID")
+        let msg = "Venue ID: \(venueId!)\nEvent ID: \(passedInEventId!)\nhttp://www.outhousetickets.com"
+        let alertController = UIAlertController(title: "Outhouse Tickets", message: msg, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "Close", style: .default, handler: nil)
+        alertController.addAction(defaultAction)
+        let webAction = UIAlertAction(title: "Visit Web Page", style: .default, handler: visitOuthouseWebPage)
+        alertController.addAction(webAction)
+        
+        present(alertController, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 
     }
+    
+    func visitOuthouseWebPage(alert: UIAlertAction!) {
+        if let url = URL(string: "https://www.outhousetickets.com") {
+            UIApplication.shared.openURL(url)
+        }
+    }
 
     func lookupTicketScanCount(_ notification: Notification){
-        DataService.getScannedTicketCountForEvent(passedInEvent)
-        DataService.getTicketCountForEvent(passedInEvent)
+        DataService.getScannedTicketCountForEvent(passedInEventId)
+        DataService.getTicketCountForEvent(passedInEventId)
     }
     
     func setTicketCountLabels(_ notification: Notification){
@@ -71,7 +93,8 @@ class TicketDetailsViewController: UIViewController {
     
     func showResult(_ notification: Notification){
         print("in showResult in TicketDetailsViewController")
-        let soundEffects = UserDefaults.standard.bool(forKey: "soundEffects")
+        let soundEffects = defaults.bool(forKey: "soundEffects")
+        print("soundEffects = ", soundEffects)
         if DataService.dataService.TICKET_STATUS == "true" {
             print("result true\n")
             if soundEffects {
@@ -100,7 +123,7 @@ class TicketDetailsViewController: UIViewController {
             //Creating an object of the second View controller
             let controller = segue.destination as! BarcodeReaderViewController
             //Sending the data here
-            controller.passedInEvent = passedInEvent as String
+            controller.passedInEventId = passedInEventId as String
             
         }
         let backItem = UIBarButtonItem()
