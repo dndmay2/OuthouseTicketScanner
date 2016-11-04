@@ -37,6 +37,7 @@ class TicketDetailsViewController: UIViewController {
         StopSignImage.isHidden = true
         CheckMarkImage.isHidden = true
         self.eventNameLabel.text = passedInEventName
+        //self.eventNameLabel.text = "This is a very, very, very long event name that should span multiple lines"
         
         NotificationCenter.default.addObserver(self, selector: #selector(setTicketCountLabels(_:)), name: NSNotification.Name(rawValue: "ShowTicketCountLabels"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(setTicketStatusLabels(_:)), name: NSNotification.Name(rawValue: "ShowTicketStatusLabels"), object: nil)

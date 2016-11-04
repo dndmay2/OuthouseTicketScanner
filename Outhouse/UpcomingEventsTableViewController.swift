@@ -46,7 +46,7 @@ class UpcomingEventsTableViewController: UITableViewController {
             DataService.getUpcomingEventsForVenue(id!)
             print(DataService.dataService.UPCOMING_EVENTS_FOR_VENUE)
         } else {
-            print("id is", id)
+           print("no id")
         }
     }
     
@@ -119,7 +119,7 @@ class UpcomingEventsTableViewController: UITableViewController {
     
     func updateAppDefaults(_ notification: Notification) {
         let id = defaults.string(forKey: "venueID")
-        print("In updateAppDefaults", id)
+        print("In updateAppDefaults", id!)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "GetEventsForVenue"), object: nil)
     }
     

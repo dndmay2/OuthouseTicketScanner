@@ -71,7 +71,7 @@ class DataService {
     }
     
     static func postSoapCommand(_ command: String, id: String?, completion : @escaping (XMLIndexer?, NSError?)->()) {
-        print("postSoapCommand", command, id, self.dataService.TICKET_CODE)
+        print("postSoapCommand", command, id as Any, self.dataService.TICKET_CODE)
         var arglist = [String:String]()
         switch command{
         case "ProcessTicketCode":
