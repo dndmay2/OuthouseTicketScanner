@@ -13,10 +13,8 @@
 		BD18826C1DB9B88500FBE1E3 /* splashScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = BD18826B1DB9B88500FBE1E3 /* splashScreen.png */; };
 		BD18826E1DB9BABF00FBE1E3 /* splashScreenText.png in Resources */ = {isa = PBXBuildFile; fileRef = BD18826D1DB9BABF00FBE1E3 /* splashScreenText.png */; };
 		BD89C8FE1D696ADA00678160 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD89C8FD1D696ADA00678160 /* AppDelegate.swift */; };
-		BD89C9001D696ADA00678160 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD89C8FF1D696ADA00678160 /* ViewController.swift */; };
 		BD89C9031D696ADA00678160 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD89C9011D696ADA00678160 /* Main.storyboard */; };
 		BD89C9051D696ADA00678160 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD89C9041D696ADA00678160 /* Assets.xcassets */; };
-		BD89C9081D696ADA00678160 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD89C9061D696ADA00678160 /* LaunchScreen.storyboard */; };
 		BD89C9131D696ADA00678160 /* OuthouseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD89C9121D696ADA00678160 /* OuthouseTests.swift */; };
 		BD89C91E1D696ADA00678160 /* OuthouseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD89C91D1D696ADA00678160 /* OuthouseUITests.swift */; };
 		BDCC22CF1D88EAC800909103 /* stop-sign-png-27210.png in Resources */ = {isa = PBXBuildFile; fileRef = BDCC22CC1D88EAC800909103 /* stop-sign-png-27210.png */; };
@@ -62,10 +60,8 @@
 		BD18826D1DB9BABF00FBE1E3 /* splashScreenText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splashScreenText.png; path = ../../../../Pictures/Outhouse/splashScreenText.png; sourceTree = "<group>"; };
 		BD89C8FA1D696ADA00678160 /* OuthouseTickets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OuthouseTickets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD89C8FD1D696ADA00678160 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BD89C8FF1D696ADA00678160 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BD89C9021D696ADA00678160 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BD89C9041D696ADA00678160 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BD89C9071D696ADA00678160 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BD89C9091D696ADA00678160 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD89C90E1D696ADA00678160 /* OuthouseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OuthouseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD89C9121D696ADA00678160 /* OuthouseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OuthouseTests.swift; sourceTree = "<group>"; };
@@ -161,7 +157,6 @@
 				BDFE84331D696EB100E91234 /* Constants.swift */,
 				BDFE84441D6BD06800E91234 /* Images */,
 				BD89C8FD1D696ADA00678160 /* AppDelegate.swift */,
-				BD89C8FF1D696ADA00678160 /* ViewController.swift */,
 				BDFE84301D696EB100E91234 /* Structures.swift */,
 				BDFE84451D6BD79A00E91234 /* ShowSplashScreenViewController.swift */,
 				BDCC22D61D8E151800909103 /* UpcomingEventsTableViewController.swift */,
@@ -170,7 +165,6 @@
 				BDFE84341D696EB100E91234 /* DataService.swift */,
 				BD89C9011D696ADA00678160 /* Main.storyboard */,
 				BDCC22D21D8DF37400909103 /* Settings.bundle */,
-				BD89C9061D696ADA00678160 /* LaunchScreen.storyboard */,
 				BD89C9091D696ADA00678160 /* Info.plist */,
 			);
 			path = Outhouse;
@@ -339,7 +333,6 @@
 				BDCC22D11D88EAC800909103 /* check-tick-icon-14147.png in Resources */,
 				BDFE84421D6BD04400E91234 /* barcodeButtonPressed.png in Resources */,
 				BDCC22D31D8DF37400909103 /* Settings.bundle in Resources */,
-				BD89C9081D696ADA00678160 /* LaunchScreen.storyboard in Resources */,
 				BDCC22CF1D88EAC800909103 /* stop-sign-png-27210.png in Resources */,
 				BDFE84431D6BD04400E91234 /* barcodeButton.png in Resources */,
 				BD89C9051D696ADA00678160 /* Assets.xcassets in Resources */,
@@ -511,7 +504,6 @@
 				BDFE84371D696EB100E91234 /* BarcodeReaderViewController.swift in Sources */,
 				BDFE84391D696EB100E91234 /* DataService.swift in Sources */,
 				BDFE84461D6BD79A00E91234 /* ShowSplashScreenViewController.swift in Sources */,
-				BD89C9001D696ADA00678160 /* ViewController.swift in Sources */,
 				BD89C8FE1D696ADA00678160 /* AppDelegate.swift in Sources */,
 				BDFE84361D696EB100E91234 /* TicketDetailsViewController.swift in Sources */,
 				BDFE84351D696EB100E91234 /* Structures.swift in Sources */,
@@ -558,14 +550,6 @@
 				BD89C9021D696ADA00678160 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		BD89C9061D696ADA00678160 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BD89C9071D696ADA00678160 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -12,13 +12,14 @@ class ShowSplashScreenViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+print("spot 1")
         // Do any additional setup after loading the view.
         perform(#selector(ShowSplashScreenViewController.showNavController), with: nil, afterDelay: 2)
     }
     
     func showNavController()
     {
+print("spot 2")
         performSegue(withIdentifier: "showSplashScreen", sender: self)
     }
 

@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Outhouse
+@testable import OuthouseTickets
 
 class OuthouseTests: XCTestCase {
     var splashVC: ShowSplashScreenViewController!
