@@ -10,8 +10,7 @@
 		00CB8DFCE46C48F28352399B /* Pods_OuthouseUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A312ECD408C88705C6C5E31D /* Pods_OuthouseUITests.framework */; };
 		26E97D73E08391E80228DFC9 /* Pods_OuthouseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 513BD276FDC5AB8890F2220D /* Pods_OuthouseTests.framework */; };
 		AB9D0B2A9C2943A20413621C /* Pods_Outhouse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24B7FA98AD6122E55D1F98AE /* Pods_Outhouse.framework */; };
-		BD18826C1DB9B88500FBE1E3 /* splashScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = BD18826B1DB9B88500FBE1E3 /* splashScreen.png */; };
-		BD18826E1DB9BABF00FBE1E3 /* splashScreenText.png in Resources */ = {isa = PBXBuildFile; fileRef = BD18826D1DB9BABF00FBE1E3 /* splashScreenText.png */; };
+		BD2BAC1C1DCD802F00183FE0 /* logoLaunchImageStarter.png in Resources */ = {isa = PBXBuildFile; fileRef = BD2BAC1B1DCD802F00183FE0 /* logoLaunchImageStarter.png */; };
 		BD89C8FE1D696ADA00678160 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD89C8FD1D696ADA00678160 /* AppDelegate.swift */; };
 		BD89C9031D696ADA00678160 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD89C9011D696ADA00678160 /* Main.storyboard */; };
 		BD89C9051D696ADA00678160 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD89C9041D696ADA00678160 /* Assets.xcassets */; };
@@ -56,8 +55,7 @@
 		76DA97DE2CD2D42F17CA90CA /* Pods-Outhouse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Outhouse.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Outhouse/Pods-Outhouse.debug.xcconfig"; sourceTree = "<group>"; };
 		9134267F48D2696B493840B9 /* Pods-OuthouseUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OuthouseUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OuthouseUITests/Pods-OuthouseUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A312ECD408C88705C6C5E31D /* Pods_OuthouseUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OuthouseUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD18826B1DB9B88500FBE1E3 /* splashScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splashScreen.png; path = ../../../../Pictures/Outhouse/splashScreen.png; sourceTree = "<group>"; };
-		BD18826D1DB9BABF00FBE1E3 /* splashScreenText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splashScreenText.png; path = ../../../../Pictures/Outhouse/splashScreenText.png; sourceTree = "<group>"; };
+		BD2BAC1B1DCD802F00183FE0 /* logoLaunchImageStarter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoLaunchImageStarter.png; sourceTree = "<group>"; };
 		BD89C8FA1D696ADA00678160 /* OuthouseTickets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OuthouseTickets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD89C8FD1D696ADA00678160 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD89C9021D696ADA00678160 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -191,11 +189,10 @@
 		BDFE84441D6BD06800E91234 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				BD2BAC1B1DCD802F00183FE0 /* logoLaunchImageStarter.png */,
 				BDCC22CC1D88EAC800909103 /* stop-sign-png-27210.png */,
 				BDCC22CE1D88EAC800909103 /* check-tick-icon-14147.png */,
 				BDFE84471D6BDD5100E91234 /* outhouseFull.jpg */,
-				BD18826D1DB9BABF00FBE1E3 /* splashScreenText.png */,
-				BD18826B1DB9B88500FBE1E3 /* splashScreen.png */,
 				BDFE84411D6BD04400E91234 /* barcodeButton.png */,
 				BDFE84401D6BD04400E91234 /* barcodeButtonPressed.png */,
 			);
@@ -329,15 +326,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD18826E1DB9BABF00FBE1E3 /* splashScreenText.png in Resources */,
 				BDCC22D11D88EAC800909103 /* check-tick-icon-14147.png in Resources */,
 				BDFE84421D6BD04400E91234 /* barcodeButtonPressed.png in Resources */,
+				BD2BAC1C1DCD802F00183FE0 /* logoLaunchImageStarter.png in Resources */,
 				BDCC22D31D8DF37400909103 /* Settings.bundle in Resources */,
 				BDCC22CF1D88EAC800909103 /* stop-sign-png-27210.png in Resources */,
 				BDFE84431D6BD04400E91234 /* barcodeButton.png in Resources */,
 				BD89C9051D696ADA00678160 /* Assets.xcassets in Resources */,
 				BD89C9031D696ADA00678160 /* Main.storyboard in Resources */,
-				BD18826C1DB9B88500FBE1E3 /* splashScreen.png in Resources */,
 				BDFE84481D6BDD5100E91234 /* outhouseFull.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -656,7 +652,7 @@
 				INFOPLIST_FILE = Outhouse/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.AmayzingApps.OuthouseTickets;
+				PRODUCT_BUNDLE_IDENTIFIER = com.AmayzingApps.OuthouseTicketsScanner;
 				PRODUCT_NAME = OuthouseTickets;
 				SWIFT_VERSION = 3.0;
 			};
@@ -674,7 +670,7 @@
 				INFOPLIST_FILE = Outhouse/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.AmayzingApps.OuthouseTickets;
+				PRODUCT_BUNDLE_IDENTIFIER = com.AmayzingApps.OuthouseTicketsScanner;
 				PRODUCT_NAME = OuthouseTickets;
 				SWIFT_VERSION = 3.0;
 			};

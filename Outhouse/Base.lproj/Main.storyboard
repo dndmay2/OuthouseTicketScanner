@@ -269,11 +269,11 @@
                                 <rect key="frame" x="0.0" y="28" width="414" height="114"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ybl-hW-Njn" id="ULX-Io-0mL">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="113.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="113"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zNG-vU-lhY">
-                                            <rect key="frame" x="15.000000000000002" y="41" width="31.666666666666668" height="19.333333333333332"/>
+                                            <rect key="frame" x="15" y="40" width="32" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -283,7 +283,7 @@
                                             </variation>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tlh-XA-4jb">
-                                            <rect key="frame" x="14.999999999999996" y="60.333333333333336" width="40.666666666666664" height="13.333333333333334"/>
+                                            <rect key="frame" x="15" y="60" width="41" height="14"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -327,7 +327,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="splashScreenText.png" translatesAutoresizingMaskIntoConstraints="NO" id="Cas-C4-6P6">
+                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logoLaunchImageStarter.png" translatesAutoresizingMaskIntoConstraints="NO" id="Cas-C4-6P6">
                                 <rect key="frame" x="-61" y="90" width="535" height="556"/>
                             </imageView>
                         </subviews>
@@ -353,7 +353,7 @@
         <image name="barcodeButton.png" width="200" height="150"/>
         <image name="barcodeButtonPressed.png" width="200" height="150"/>
         <image name="check-tick-icon-14147.png" width="500" height="485"/>
-        <image name="splashScreenText.png" width="1283" height="1920"/>
+        <image name="logoLaunchImageStarter.png" width="1242" height="2208"/>
         <image name="stop-sign-png-27210.png" width="256" height="256"/>
     </resources>
     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
