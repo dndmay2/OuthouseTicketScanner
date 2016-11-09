@@ -18,6 +18,7 @@ class UpcomingEventsTableViewController: UITableViewController {
     var sendSelectedEventID = NSString()
     var sendSelectedEventName = NSString()
     let defaults = UserDefaults.init()
+//    var otherId = "0"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,18 @@ class UpcomingEventsTableViewController: UITableViewController {
         
         processAppDefaults()
         
+        refreshControl?.addTarget(self, action: #selector(UpcomingEventsTableViewController.refreshData),
+                                 for: UIControlEvents.valueChanged)
+        let attributes = [NSForegroundColorAttributeName: UIColor.white]
+        refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh", attributes: attributes)
+        refreshControl?.tintColor = UIColor.red
+        
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            eventTable.addSubview(refreshControl!)
+        }
+
         NotificationCenter.default.addObserver(self, selector: #selector(updateAppDefaults(_:)), name: NSNotification.Name(rawValue: "NSUserDefaultsDidChangeNotification"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateEventTable(_:)), name: NSNotification.Name(rawValue: "ShowUpcomingEvents"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(getEventsForVenue(_:)), name: NSNotification.Name(rawValue: "GetEventsForVenue"), object: nil)
@@ -40,14 +53,36 @@ class UpcomingEventsTableViewController: UITableViewController {
     }
     
     func getEventsForVenue(_ notification: Notification) {
+        getEventsNow()
+    }
+    
+    func getEventsNow() {
         let id = defaults.string(forKey: "venueID")
+//        if otherId == "0" {
+//            id = "0"
+//        }
+//        else {
+//            id = "191"
+//        }
         if (id != nil) { // This is where it breaks
             print("id is", id!)
             DataService.getUpcomingEventsForVenue(id!)
             print(DataService.dataService.UPCOMING_EVENTS_FOR_VENUE)
         } else {
-           print("no id")
+            print("no id")
         }
+    }
+    
+    func refreshData() {
+        // Refresh data code
+        print("refreshing")
+//        if(otherId == "0") {
+//            otherId = "191"
+//        } else {
+//            otherId = "0"
+//        }
+        getEventsNow()
+        refreshControl?.endRefreshing()
     }
     
     func processAppDefaults() {

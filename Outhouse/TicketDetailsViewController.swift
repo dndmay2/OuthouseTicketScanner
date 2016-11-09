@@ -36,8 +36,8 @@ class TicketDetailsViewController: UIViewController {
         totalTicketsLabel.text = "0"
         StopSignImage.isHidden = true
         CheckMarkImage.isHidden = true
+//        passedInEventName = "This is a very, very, very long event name that should span multiple lines"
         self.eventNameLabel.text = passedInEventName
-        //self.eventNameLabel.text = "This is a very, very, very long event name that should span multiple lines"
         
         NotificationCenter.default.addObserver(self, selector: #selector(setTicketCountLabels(_:)), name: NSNotification.Name(rawValue: "ShowTicketCountLabels"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(setTicketStatusLabels(_:)), name: NSNotification.Name(rawValue: "ShowTicketStatusLabels"), object: nil)
@@ -50,7 +50,7 @@ class TicketDetailsViewController: UIViewController {
     
     @IBAction func navBarInfoButton(_ sender: AnyObject) {
         let venueId = defaults.string(forKey: "venueID")
-        let msg = "Venue ID: \(venueId!)\nEvent ID: \(passedInEventId!)\nhttp://www.outhousetickets.com"
+        let msg = "\(passedInEventName!)\nVenue ID: \(venueId!)\nEvent ID: \(passedInEventId!)\nhttp://www.outhousetickets.com"
         let alertController = UIAlertController(title: "Outhouse Tickets", message: msg, preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: "Close", style: .default, handler: nil)
         alertController.addAction(defaultAction)
