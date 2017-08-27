@@ -147,7 +147,7 @@ class UpcomingEventsTableViewController: UITableViewController {
         eventDict = [:]
         for event in DataService.dataService.UPCOMING_EVENTS_FOR_VENUE {
             eventArray.append(event)
-            eventDict[event.eventName] = event.eventId
+            eventDict[event.eventName + ":" + event.eventDate] = event.eventId
         }
         eventTable.reloadData()
     }
@@ -173,7 +173,7 @@ class UpcomingEventsTableViewController: UITableViewController {
         }
         else {
             //Storing the data to a string from the selected cell
-            sendSelectedEventID = eventDict[currentCell!.textLabel!.text!]! as NSString
+            sendSelectedEventID = eventDict[currentCell!.textLabel!.text! + ":" + currentCell!.detailTextLabel!.text!]! as NSString
             sendSelectedEventName = currentCell!.textLabel!.text! as NSString
             print("what i'm going to send:", sendSelectedEventID)
             //Now here I am performing the segue action after cell selection to the other view controller by using the segue Identifier Name
