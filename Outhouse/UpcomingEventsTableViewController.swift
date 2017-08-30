@@ -166,7 +166,7 @@ class UpcomingEventsTableViewController: UITableViewController {
         let indexPathVal: IndexPath = eventTable.indexPathForSelectedRow!
         print("\(indexPathVal)")
         let currentCell = eventTable.cellForRow(at: indexPathVal) as UITableViewCell!;
-        print("\(currentCell?.textLabel!.text)")
+        print("\(String(describing: currentCell?.textLabel!.text))")
         if currentCell?.textLabel!.text == "Web Query Error" {
             currentCell?.textLabel!.text = "Trying again ..."
             getEventDates()

@@ -1,18 +1,18 @@
 PODS:
   - AEXML (4.0.1)
-  - Alamofire (4.0.1)
+  - Alamofire (4.1.0)
   - SWXMLHash (3.0.2)
 
 DEPENDENCIES:
   - AEXML (~> 4.0)
-  - Alamofire (~> 4.0.0)
+  - Alamofire (~> 4.1.0)
   - SWXMLHash (~> 3.0)
 
 SPEC CHECKSUMS:
   AEXML: 905e50474c0a261d335aa8be4ee32d22d69b6fd5
-  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  Alamofire: e266cf991b933498df791e645e0d8ac294492153
   SWXMLHash: e0f6935971f01b06fb228cf435510d998ecde647
 
-PODFILE CHECKSUM: 76bd7a844c7102d1e5a6c3b0144bd435d0269f9c
+PODFILE CHECKSUM: e42236058cfbebf6dff8508816537df095d679ab
 
 COCOAPODS: 1.1.0.rc.2

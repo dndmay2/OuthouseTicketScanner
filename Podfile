@@ -9,7 +9,7 @@ target 'Outhouse' do
   use_frameworks!
 
   # Pods for Outhouse
-  pod 'Alamofire', '~> 4.0.0'
+  pod 'Alamofire', '~> 4.1.0'
   # pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
   pod 'SWXMLHash', '~> 3.0'
   pod 'AEXML', '~> 4.0'
