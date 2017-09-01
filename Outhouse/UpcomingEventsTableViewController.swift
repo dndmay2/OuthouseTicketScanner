@@ -49,14 +49,17 @@ class UpcomingEventsTableViewController: UITableViewController {
     }
     
     func getEventDates() {
+        print("getting event dates")
         DataService.getAllUpcomingEventsWithDate()        
     }
     
     func getEventsForVenue(_ notification: Notification) {
+        print("getting events for venue")
         getEventsNow()
     }
     
     func getEventsNow() {
+        print("getting events now")
         let id = defaults.string(forKey: "venueID")
 //        if otherId == "0" {
 //            id = "0"
@@ -67,7 +70,7 @@ class UpcomingEventsTableViewController: UITableViewController {
         if (id != nil) { // This is where it breaks
             print("id is", id!)
             DataService.getUpcomingEventsForVenue(id!)
-            print(DataService.dataService.UPCOMING_EVENTS_FOR_VENUE)
+            //print(DataService.dataService.UPCOMING_EVENTS_FOR_VENUE)
         } else {
             print("no id")
         }
@@ -81,7 +84,8 @@ class UpcomingEventsTableViewController: UITableViewController {
 //        } else {
 //            otherId = "0"
 //        }
-        getEventsNow()
+        getEventDates()
+        //getEventsNow()
         refreshControl?.endRefreshing()
     }
     
@@ -112,7 +116,7 @@ class UpcomingEventsTableViewController: UITableViewController {
         let numChars = theText!.characters.count
         let numLines = Int(floor(Float(numChars)/30.0))+1
         cell.textLabel?.numberOfLines = numLines
-        print("numChars", numChars, "numLines", numLines)
+        //print("numChars", numChars, "numLines", numLines)
         cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
         cell.detailTextLabel?.text = eventArray[(indexPath as NSIndexPath).row].eventDate
         print(eventArray[(indexPath as NSIndexPath).row].eventDate)
@@ -142,7 +146,7 @@ class UpcomingEventsTableViewController: UITableViewController {
     }
     
     func updateEventTable(_ notification: Notification){
-        print("myupdate", DataService.dataService.UPCOMING_EVENTS_FOR_VENUE)
+        print("myupdate")
         eventArray = []
         eventDict = [:]
         for event in DataService.dataService.UPCOMING_EVENTS_FOR_VENUE {
