@@ -1,7 +1,6 @@
 # OuthouseTicketScanner
 I have ignored the Outhouse/Constants.swift file because it 
-contained keys to the discogs website. This will eventually
-contain keys to the Outhouse website.
+contained keys to the Outhouse website. 
 
 For everything to work, you'll need this file.
 Outhouse/Constants.swift
@@ -17,7 +16,10 @@ Outhouse/Constants.swift
 import Foundation
 import UIKit
 
-let DISCOGS_KEY = ""
-let DISCOGS_SECRET = ""
-let DISCOGS_AUTH_URL = "https://api.discogs.com/database/search?q="
+let OUTHOUSE_ADMIN = ""
+let OUTHOUSE_PASSWORD = ""
 
+let TEST_EVENT_ID = ""
+let TEST_VENUE_ID = ""
+let TEST_TICKET_CODE = "06L0660550"
+var LED_BACK_LIGHT_SETTING = false
